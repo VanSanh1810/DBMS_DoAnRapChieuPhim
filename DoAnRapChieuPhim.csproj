@@ -111,14 +111,29 @@
     <EmbeddedResource Include="AddDoAn.resx">
       <DependentUpon>AddDoAn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddGhe.resx">
+      <DependentUpon>AddGhe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddKhachHang.resx">
       <DependentUpon>AddKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddLichChieu.resx">
+      <DependentUpon>AddLichChieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNhanVien.resx">
+      <DependentUpon>AddNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPhim.resx">
       <DependentUpon>AddPhim.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddPhongBan.resx">
+      <DependentUpon>AddPhongBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPhongChieu.resx">
       <DependentUpon>AddPhongChieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddVe.resx">
+      <DependentUpon>AddVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
