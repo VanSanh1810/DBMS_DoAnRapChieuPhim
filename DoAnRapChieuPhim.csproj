@@ -46,6 +46,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDoAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDoAn.Designer.cs">
+      <DependentUpon>AddDoAn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGhe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGhe.Designer.cs">
+      <DependentUpon>AddGhe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddKhachHang.Designer.cs">
+      <DependentUpon>AddKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddLichChieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLichChieu.Designer.cs">
+      <DependentUpon>AddLichChieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNhanVien.Designer.cs">
+      <DependentUpon>AddNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPhim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPhim.Designer.cs">
+      <DependentUpon>AddPhim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPhongBan.Designer.cs">
+      <DependentUpon>AddPhongBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPhongChieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPhongChieu.Designer.cs">
+      <DependentUpon>AddPhongChieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVe.Designer.cs">
+      <DependentUpon>AddVe.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +108,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddDoAn.resx">
+      <DependentUpon>AddDoAn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddKhachHang.resx">
+      <DependentUpon>AddKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPhim.resx">
+      <DependentUpon>AddPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPhongChieu.resx">
+      <DependentUpon>AddPhongChieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
