@@ -91,6 +91,8 @@ namespace DoAnRapChieuPhim
             // cbx_trangthai
             // 
             this.cbx_trangthai.AutoSize = true;
+            this.cbx_trangthai.Checked = true;
+            this.cbx_trangthai.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbx_trangthai.Location = new System.Drawing.Point(108, 114);
             this.cbx_trangthai.Name = "cbx_trangthai";
             this.cbx_trangthai.Size = new System.Drawing.Size(77, 17);

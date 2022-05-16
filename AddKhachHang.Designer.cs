@@ -29,6 +29,7 @@ namespace DoAnRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@ namespace DoAnRapChieuPhim
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_del = new System.Windows.Forms.Button();
+            this.err_tenkhach = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.err_tenkhach)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,6 +99,7 @@ namespace DoAnRapChieuPhim
             // 
             this.tbx_makhach.Location = new System.Drawing.Point(93, 25);
             this.tbx_makhach.Name = "tbx_makhach";
+            this.tbx_makhach.ReadOnly = true;
             this.tbx_makhach.Size = new System.Drawing.Size(162, 20);
             this.tbx_makhach.TabIndex = 5;
             // 
@@ -105,6 +109,7 @@ namespace DoAnRapChieuPhim
             this.tbx_tenkhach.Name = "tbx_tenkhach";
             this.tbx_tenkhach.Size = new System.Drawing.Size(162, 20);
             this.tbx_tenkhach.TabIndex = 6;
+            this.tbx_tenkhach.Leave += new System.EventHandler(this.tbx_tenkhach_Leave);
             // 
             // cbx_VIP
             // 
@@ -119,6 +124,7 @@ namespace DoAnRapChieuPhim
             // rbtn_nam
             // 
             this.rbtn_nam.AutoSize = true;
+            this.rbtn_nam.Checked = true;
             this.rbtn_nam.Location = new System.Drawing.Point(93, 105);
             this.rbtn_nam.Name = "rbtn_nam";
             this.rbtn_nam.Size = new System.Drawing.Size(47, 17);
@@ -153,6 +159,8 @@ namespace DoAnRapChieuPhim
             this.tbx_diem.Name = "tbx_diem";
             this.tbx_diem.Size = new System.Drawing.Size(165, 20);
             this.tbx_diem.TabIndex = 11;
+            this.tbx_diem.Text = "0";
+            this.tbx_diem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_diem_KeyPress);
             // 
             // dateTimePicker1
             // 
@@ -169,6 +177,7 @@ namespace DoAnRapChieuPhim
             this.btn_add.TabIndex = 13;
             this.btn_add.Text = "ADD";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_edit
             // 
@@ -178,6 +187,7 @@ namespace DoAnRapChieuPhim
             this.btn_edit.TabIndex = 14;
             this.btn_edit.Text = "UPDATE";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_del
             // 
@@ -187,6 +197,11 @@ namespace DoAnRapChieuPhim
             this.btn_del.TabIndex = 15;
             this.btn_del.Text = "DELETE";
             this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            // 
+            // err_tenkhach
+            // 
+            this.err_tenkhach.ContainerControl = this;
             // 
             // AddKhachHang
             // 
@@ -212,6 +227,7 @@ namespace DoAnRapChieuPhim
             this.Name = "AddKhachHang";
             this.Text = "AddKhachHang";
             this.Load += new System.EventHandler(this.AddKhachHang_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.err_tenkhach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +251,6 @@ namespace DoAnRapChieuPhim
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_del;
+        private System.Windows.Forms.ErrorProvider err_tenkhach;
     }
 }

@@ -30,9 +30,82 @@ namespace DoAnRapChieuPhim
             this.diem = diem;
         }
 
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            if (tbx_tenkhach.Text.Trim() == "")
+            {
+                err_tenkhach.SetError(tbx_tenkhach, "Empty !");
+            }
+            else
+            {
+                //add//
+            }
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if (tbx_tenkhach.Text.Trim() == "")
+            {
+                err_tenkhach.SetError(tbx_tenkhach, "Empty !");
+            }
+            else
+            {
+                //update//
+            }
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            //del//
+        }
+
+        private void tbx_tenkhach_Leave(object sender, EventArgs e)
+        {
+            if(tbx_tenkhach.Text.Trim() == "")
+            {
+                err_tenkhach.SetError(tbx_tenkhach, "Empty !");
+            }
+        }
+
+        private void tbx_diem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void AddKhachHang_Load(object sender, EventArgs e)
         {
-
+            switch (state)
+            {
+                case 1: //ADD
+                    {
+                        btn_del.Enabled = false;
+                        btn_del.Visible = false;
+                        btn_edit.Enabled = false;
+                        btn_edit.Visible = false;
+                        string ma = "KH" + DateTime.Now.Month.ToString()
+                                + DateTime.Now.Day.ToString()
+                                + DateTime.Now.Hour.ToString()
+                                + DateTime.Now.Minute.ToString()
+                                + DateTime.Now.Second.ToString();
+                        tbx_makhach.Text = ma;
+                        break;
+                    }
+                case 2: //DEL, UPDATE
+                    {
+                        btn_add.Enabled = false;
+                        btn_add.Visible = false;
+                        tbx_makhach.Text = makh;
+                        tbx_tenkhach.Text = tenkh;
+                        rbtn_nam.Checked = (giotinh) ? true : false;
+                        dateTimePicker1.Value = namsinh;
+                        cbx_VIP.Checked = (loaikh) ? true : false;
+                        tbx_diem.Text = diem.ToString();
+                        break;
+                    }
+            }
         }
     }
 }
