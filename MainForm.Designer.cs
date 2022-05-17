@@ -39,6 +39,8 @@ namespace DoAnRapChieuPhim
             this.button_thongke = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbx_find_tenphim = new System.Windows.Forms.TextBox();
             this.button_add_phim = new System.Windows.Forms.Button();
             this.button_refresh_phim = new System.Windows.Forms.Button();
             this.dataGridView_phim = new System.Windows.Forms.DataGridView();
@@ -134,8 +136,8 @@ namespace DoAnRapChieuPhim
             this.lICHCHIEUBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.lICHCHIEUTableAdapter1 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet12TableAdapters.LICHCHIEUTableAdapter();
             this.pHONGBANTableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet13TableAdapters.PHONGBANTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.trackBar_thoiluong = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -174,6 +176,7 @@ namespace DoAnRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_thoiluong)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -266,8 +269,10 @@ namespace DoAnRapChieuPhim
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.trackBar_thoiluong);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.tbx_find_tenphim);
             this.tabPage1.Controls.Add(this.button_add_phim);
             this.tabPage1.Controls.Add(this.button_refresh_phim);
             this.tabPage1.Controls.Add(this.dataGridView_phim);
@@ -277,6 +282,22 @@ namespace DoAnRapChieuPhim
             this.tabPage1.Size = new System.Drawing.Size(685, 351);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Phim";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(461, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tên phim";
+            // 
+            // tbx_find_tenphim
+            // 
+            this.tbx_find_tenphim.Location = new System.Drawing.Point(518, 17);
+            this.tbx_find_tenphim.Name = "tbx_find_tenphim";
+            this.tbx_find_tenphim.Size = new System.Drawing.Size(119, 20);
+            this.tbx_find_tenphim.TabIndex = 3;
             // 
             // button_add_phim
             // 
@@ -298,6 +319,7 @@ namespace DoAnRapChieuPhim
             this.button_refresh_phim.TabIndex = 1;
             this.button_refresh_phim.Text = "Refresh";
             this.button_refresh_phim.UseVisualStyleBackColor = false;
+            this.button_refresh_phim.Click += new System.EventHandler(this.button_refresh_phim_Click);
             // 
             // dataGridView_phim
             // 
@@ -468,6 +490,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_khachhang.Name = "dataGridView_khachhang";
             this.dataGridView_khachhang.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_khachhang.TabIndex = 1;
+            this.dataGridView_khachhang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_khachhang_CellDoubleClick);
             // 
             // maKHDataGridViewTextBoxColumn
             // 
@@ -565,6 +588,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_nhanvien.Name = "dataGridView_nhanvien";
             this.dataGridView_nhanvien.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_nhanvien.TabIndex = 1;
+            this.dataGridView_nhanvien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_nhanvien_CellDoubleClick);
             // 
             // maNVDataGridViewTextBoxColumn
             // 
@@ -639,6 +663,7 @@ namespace DoAnRapChieuPhim
             this.button_refresh_doan.TabIndex = 4;
             this.button_refresh_doan.Text = "Refresh";
             this.button_refresh_doan.UseVisualStyleBackColor = false;
+            this.button_refresh_doan.Click += new System.EventHandler(this.button_refresh_doan_Click);
             // 
             // button_add_doan
             // 
@@ -664,6 +689,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_doan.Name = "dataGridView_doan";
             this.dataGridView_doan.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_doan.TabIndex = 1;
+            this.dataGridView_doan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_doan_CellDoubleClick);
             // 
             // maDoAnDataGridViewTextBoxColumn
             // 
@@ -744,6 +770,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_ve.Name = "dataGridView_ve";
             this.dataGridView_ve.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_ve.TabIndex = 1;
+            this.dataGridView_ve.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ve_CellDoubleClick);
             // 
             // maVeDataGridViewTextBoxColumn
             // 
@@ -917,6 +944,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_phongban.Name = "dataGridView_phongban";
             this.dataGridView_phongban.Size = new System.Drawing.Size(440, 300);
             this.dataGridView_phongban.TabIndex = 9;
+            this.dataGridView_phongban.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_phongban_CellDoubleClick);
             // 
             // maPBDataGridViewTextBoxColumn1
             // 
@@ -960,6 +988,7 @@ namespace DoAnRapChieuPhim
             this.btn_refresh_phongban.TabIndex = 7;
             this.btn_refresh_phongban.Text = "Refresh";
             this.btn_refresh_phongban.UseVisualStyleBackColor = false;
+            this.btn_refresh_phongban.Click += new System.EventHandler(this.btn_refresh_phongban_Click);
             // 
             // pHIMTableAdapter
             // 
@@ -1007,21 +1036,21 @@ namespace DoAnRapChieuPhim
             // 
             this.pHONGBANTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox1
+            // trackBar_thoiluong
             // 
-            this.textBox1.Location = new System.Drawing.Point(518, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 20);
-            this.textBox1.TabIndex = 3;
+            this.trackBar_thoiluong.Location = new System.Drawing.Point(530, 82);
+            this.trackBar_thoiluong.Name = "trackBar_thoiluong";
+            this.trackBar_thoiluong.Size = new System.Drawing.Size(130, 45);
+            this.trackBar_thoiluong.TabIndex = 5;
             // 
-            // label2
+            // label3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(461, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Tên phim";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(461, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Thời lượng :";
             // 
             // MainForm
             // 
@@ -1075,6 +1104,7 @@ namespace DoAnRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_thoiluong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1186,7 +1216,9 @@ namespace DoAnRapChieuPhim
         private System.Windows.Forms.DataGridViewTextBoxColumn maPBDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenPBDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbx_find_tenphim;
+        private System.Windows.Forms.TrackBar trackBar_thoiluong;
+        private System.Windows.Forms.Label label3;
     }
 }
 

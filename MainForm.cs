@@ -47,24 +47,76 @@ namespace DoAnRapChieuPhim
 
         private void dataGridView_phim_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AddPhim a = new AddPhim(2, dataGridView_phim.CurrentRow.Cells[0].Value.ToString(),
+            if (dataGridView_phim.Rows.Count != 0)
+            {
+                AddPhim a = new AddPhim(2, dataGridView_phim.CurrentRow.Cells[0].Value.ToString(),
                                         dataGridView_phim.CurrentRow.Cells[1].Value.ToString(),
                                         Convert.ToInt32(dataGridView_phim.CurrentRow.Cells[2].Value.ToString().Trim()));
-            a.Show(this);
+                a.Show(this);
+            }
         }
-
         private void dataGridView_phongchieu_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             AddPhongChieu a = new AddPhongChieu(2, dataGridView_phongchieu.CurrentRow.Cells[0].Value.ToString(),
                                                     Convert.ToInt32(dataGridView_phongchieu.CurrentRow.Cells[1].Value.ToString().Trim()),
                                                     (bool)dataGridView_phongchieu.CurrentRow.Cells[2].Value);
+            a.Show(this);
         }
         private void dataGridView_lichchieu_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            AddLichChieu a = new AddLichChieu(1, "", "", "", DateTime.Now, 0);
+            AddLichChieu a = new AddLichChieu(2, dataGridView_lichchieu.CurrentRow.Cells[0].Value.ToString(),
+                                                    dataGridView_lichchieu.CurrentRow.Cells[1].Value.ToString(),
+                                                    dataGridView_lichchieu.CurrentRow.Cells[2].Value.ToString(),
+                                                    (DateTime)dataGridView_lichchieu.CurrentRow.Cells[3].Value,
+                                                    (int)dataGridView_lichchieu.CurrentRow.Cells[4].Value);
             a.Show(this);
         }
-
+        private void dataGridView_khachhang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddKhachHang a = new AddKhachHang(2, dataGridView_khachhang.CurrentRow.Cells[0].Value.ToString(),
+                                                dataGridView_khachhang.CurrentRow.Cells[1].Value.ToString(),
+                                                (bool)dataGridView_khachhang.CurrentRow.Cells[2].Value,
+                                                (DateTime)dataGridView_khachhang.CurrentRow.Cells[3].Value,
+                                                (bool)dataGridView_khachhang.CurrentRow.Cells[4].Value,
+                                                Convert.ToInt32(dataGridView_khachhang.CurrentRow.Cells[5].Value.ToString()));
+            a.Show(this);
+        }
+        private void dataGridView_nhanvien_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddNhanVien a = new AddNhanVien(2, dataGridView_nhanvien.CurrentRow.Cells[0].Value.ToString(),
+                                               dataGridView_nhanvien.CurrentRow.Cells[1].Value.ToString(),
+                                               dataGridView_nhanvien.CurrentRow.Cells[2].Value.ToString(),
+                                               (bool)dataGridView_nhanvien.CurrentRow.Cells[3].Value,
+                                               (DateTime)dataGridView_nhanvien.CurrentRow.Cells[4].Value,
+                                               dataGridView_nhanvien.CurrentRow.Cells[5].Value.ToString(),
+                                               dataGridView_nhanvien.CurrentRow.Cells[6].Value.ToString());
+            a.Show(this);
+        }
+        private void dataGridView_doan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddDoAn a = new AddDoAn(2, dataGridView_doan.CurrentRow.Cells[0].Value.ToString(),
+                                       dataGridView_doan.CurrentRow.Cells[1].Value.ToString(),
+                                       Convert.ToInt32(dataGridView_doan.CurrentRow.Cells[2].Value));
+            a.Show(this);
+        }
+        private void dataGridView_phongban_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddPhongBan a = new AddPhongBan(2, dataGridView_phongban.CurrentRow.Cells[0].Value.ToString(),
+                                              dataGridView_phongban.CurrentRow.Cells[1].Value.ToString());
+            a.Show(this);
+        }
+        private void dataGridView_ve_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddVe a = new AddVe(2, dataGridView_ve.CurrentRow.Cells[0].Value.ToString(),
+                                  dataGridView_ve.CurrentRow.Cells[1].Value.ToString(),
+                                  dataGridView_ve.CurrentRow.Cells[2].Value.ToString(),
+                                  dataGridView_ve.CurrentRow.Cells[3].Value.ToString(),
+                                  dataGridView_ve.CurrentRow.Cells[4].Value.ToString(),
+                                  dataGridView_ve.CurrentRow.Cells[5].Value.ToString(),
+                                  (DateTime)dataGridView_ve.CurrentRow.Cells[6].Value,
+                                  Convert.ToInt32(dataGridView_ve.CurrentRow.Cells[0].Value));
+            a.Show(this);
+        }
 
 
 
@@ -119,6 +171,21 @@ namespace DoAnRapChieuPhim
         private void btn_logout_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_refresh_phongban_Click(object sender, EventArgs e)
+        {
+            this.pHONGBANTableAdapter.Fill(this.doAnRapChieuPhim03DataSet13.PHONGBAN);
+        }
+
+        private void button_refresh_doan_Click(object sender, EventArgs e)
+        {
+            this.dOANTableAdapter.Fill(this.doAnRapChieuPhim03DataSet9.DOAN);
+        }
+
+        private void button_refresh_phim_Click(object sender, EventArgs e)
+        {
+            this.pHIMTableAdapter.Fill(this.doAnRapChieuPhim03DataSet5.PHIM);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace DoAnRapChieuPhim
 {
     public partial class AddDoAn : Form
     {
+        DOAN da = new DOAN();
         int state;
         string madoan, tenmon;
         int gia;
@@ -58,7 +59,7 @@ namespace DoAnRapChieuPhim
             }
             else
             {
-                //update//
+                da.UpdateDoAn(tbx_madoan.Text, tbx__tenmon.Text, Convert.ToInt32(tbx_giatien.Text));
             }
         }
 
@@ -70,13 +71,13 @@ namespace DoAnRapChieuPhim
             }
             else
             {
-                //check ton tai MaDoAn roi add//
+                da.AddDoAn(tbx_madoan.Text, tbx__tenmon.Text, Convert.ToInt32(tbx_giatien.Text));
             }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            //del//
+            da.DelDoAn(tbx_madoan.Text);
         }
 
         private void tbx_madoan_Leave(object sender, EventArgs e)

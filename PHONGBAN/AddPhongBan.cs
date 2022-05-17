@@ -12,6 +12,7 @@ namespace DoAnRapChieuPhim
 {
     public partial class AddPhongBan : Form
     {
+        PHONGBAN pb = new PHONGBAN();
         int state;
         string mapb;
         string tenpb;
@@ -79,7 +80,7 @@ namespace DoAnRapChieuPhim
             }
             else
             {
-                //ADD//
+                pb.AddPB(tbx_mapb.Text, tbx_tenpb.Text);
             }
         }
 
@@ -91,13 +92,13 @@ namespace DoAnRapChieuPhim
             }
             else
             {
-                //ADD//
+                pb.UpdatePB(mapb, tbx_tenpb.Text);
             }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            //del//
+            pb.DelPB(tbx_mapb.Text);
         }
     }
 }
