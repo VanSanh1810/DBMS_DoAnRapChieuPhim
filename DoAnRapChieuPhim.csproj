@@ -46,6 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChonGhe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChonGhe.Designer.cs">
+      <DependentUpon>ChonGhe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoAnRapChieuPhim03DataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoAnRapChieuPhim03DataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DoAnRapChieuPhim03DataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoAnRapChieuPhim03DataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DoAnRapChieuPhim03DataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoAnRapChieuPhim03DataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DoAnRapChieuPhim03DataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoAnRapChieuPhim03DataSet17.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DOAN\AddDoAn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +207,9 @@
     <Compile Include="PHONGBAN\PHONGBAN.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChonGhe.resx">
+      <DependentUpon>ChonGhe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DOAN\AddDoAn.resx">
       <DependentUpon>AddDoAn.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +312,50 @@
     </None>
     <None Include="DoAnRapChieuPhim03DataSet13.xss">
       <DependentUpon>DoAnRapChieuPhim03DataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet14.xsc">
+      <DependentUpon>DoAnRapChieuPhim03DataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DoAnRapChieuPhim03DataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet14.xss">
+      <DependentUpon>DoAnRapChieuPhim03DataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet15.xsc">
+      <DependentUpon>DoAnRapChieuPhim03DataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DoAnRapChieuPhim03DataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet15.xss">
+      <DependentUpon>DoAnRapChieuPhim03DataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet16.xsc">
+      <DependentUpon>DoAnRapChieuPhim03DataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DoAnRapChieuPhim03DataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet16.xss">
+      <DependentUpon>DoAnRapChieuPhim03DataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet17.xsc">
+      <DependentUpon>DoAnRapChieuPhim03DataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DoAnRapChieuPhim03DataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet17.xss">
+      <DependentUpon>DoAnRapChieuPhim03DataSet17.xsd</DependentUpon>
     </None>
     <None Include="DoAnRapChieuPhim03DataSet2.xsc">
       <DependentUpon>DoAnRapChieuPhim03DataSet2.xsd</DependentUpon>

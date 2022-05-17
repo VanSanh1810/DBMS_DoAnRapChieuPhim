@@ -12,6 +12,7 @@ namespace DoAnRapChieuPhim
 {
     public partial class AddNhanVien : Form
     {
+        NHANVIEN nv = new NHANVIEN();
         int state;
         string manv;
         string tennv;
@@ -20,7 +21,7 @@ namespace DoAnRapChieuPhim
         DateTime ngaysinh;
         string sdt;
         string diachi;
-        public AddNhanVien(int state, string manv, string tennv, string mapb, bool gioitinh, DateTime ngaysinh, string sdt, string diachi)
+        public AddNhanVien(int state, string manv, string tennv, string mapb, bool gioitinh, DateTime ngaysinh, string diachi, string sdt)
         {
             InitializeComponent();
             this.state = state;
@@ -35,6 +36,8 @@ namespace DoAnRapChieuPhim
 
         private void AddNhanVien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet14.PHONGBAN' table. You can move, or remove it, as needed.
+            this.pHONGBANTableAdapter.Fill(this.doAnRapChieuPhim03DataSet14.PHONGBAN);
             switch (state)
             {
                 case 1: //ADD
@@ -100,6 +103,12 @@ namespace DoAnRapChieuPhim
             else
             {
                 //add
+                nv.AddNhanVien(tbx_manv.Text, 
+                                tbx_tennv.Text, 
+                                cbx_mapb.SelectedValue.ToString().Trim(), 
+                                (rbtn_nam.Checked) ? true : false, 
+                                dateTimePicker1.Value, tbx_diachi.Text, 
+                                tbx_sdt.Text);
             }
         }
 
@@ -112,12 +121,19 @@ namespace DoAnRapChieuPhim
             else
             {
                 //update
+                nv.UpdateNhanVien(tbx_manv.Text,
+                                tbx_tennv.Text,
+                                cbx_mapb.SelectedValue.ToString().Trim(),
+                                (rbtn_nam.Checked) ? true : false,
+                                dateTimePicker1.Value, tbx_diachi.Text,
+                                tbx_sdt.Text);
             }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
             //del//
+            nv.DelNhanVien(tbx_manv.Text);
         }
     }
 }

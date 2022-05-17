@@ -12,6 +12,7 @@ namespace DoAnRapChieuPhim
 {
     public partial class AddPhongChieu : Form
     {
+        PHONGCHIEU pc = new PHONGCHIEU();
         int state;
         string mapc;
         int succhua;
@@ -82,6 +83,7 @@ namespace DoAnRapChieuPhim
             else
             {
                 //check ma pc roi add//
+                pc.AddPhongChieu(tbx_maphongchieu.Text, Convert.ToInt32(tbx_succhua.Text), (cbx_trangthai.Checked) ? true : false);
             }
         }
 
@@ -93,13 +95,14 @@ namespace DoAnRapChieuPhim
             }
             else
             {
-                //update//
+                pc.UpdatePhongChieu(tbx_maphongchieu.Text, Convert.ToInt32(tbx_succhua.Text), (cbx_trangthai.Checked) ? true : false);
             }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
             //del//
+            pc.DelPhongChieu(tbx_maphongchieu.Text);
         }
     }
 }

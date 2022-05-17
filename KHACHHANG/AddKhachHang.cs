@@ -12,6 +12,7 @@ namespace DoAnRapChieuPhim
 {
     public partial class AddKhachHang : Form
     {
+        KHACHHANG kh = new KHACHHANG();
         int state;
         string makh, tenkh;
         bool giotinh;
@@ -39,6 +40,12 @@ namespace DoAnRapChieuPhim
             else
             {
                 //add//
+                kh.AddKhachHang(tbx_makhach.Text, 
+                                tbx_tenkhach.Text, 
+                                rbtn_nam.Checked, 
+                                dateTimePicker1.Value, 
+                                cbx_VIP.Checked, 
+                                Convert.ToInt32(tbx_diem.Text));
             }
         }
 
@@ -51,12 +58,19 @@ namespace DoAnRapChieuPhim
             else
             {
                 //update//
+                kh.UpdateKhachHang(tbx_makhach.Text,
+                                tbx_tenkhach.Text,
+                                rbtn_nam.Checked,
+                                dateTimePicker1.Value,
+                                cbx_VIP.Checked,
+                                Convert.ToInt32(tbx_diem.Text));
             }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
             //del//
+            kh.DelKhachHang(tbx_makhach.Text);
         }
 
         private void tbx_tenkhach_Leave(object sender, EventArgs e)

@@ -12,6 +12,7 @@ namespace DoAnRapChieuPhim
 {
     public partial class AddPhim : Form
     {
+        PHIM ph = new PHIM();
         int state;
         string maphim, tenphim;
         int thoiluong;
@@ -40,6 +41,7 @@ namespace DoAnRapChieuPhim
                         btn_add.Enabled = false;
                         btn_add.Visible = false;
                         tbx_maphim.Text = maphim;
+                        tbx_maphim.ReadOnly = true;
                         tbx_tenphim.Text = tenphim;
                         tbx_thoiluong.Text = thoiluong.ToString().Trim();
                         tbx_thoiluong.Enabled = true;
@@ -102,12 +104,13 @@ namespace DoAnRapChieuPhim
             else
             {
                 ///check ton tai ma phim//roi add
+                ph.AddPhim(tbx_maphim.Text, tbx_tenphim.Text, Convert.ToInt32(tbx_thoiluong.Text));
             }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            //del//
+            ph.DelPhim(tbx_maphim.Text);
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -118,7 +121,7 @@ namespace DoAnRapChieuPhim
             }
             else
             {
-                ///update//
+                ph.UpdatePhim(tbx_maphim.Text, tbx_tenphim.Text, Convert.ToInt32(tbx_thoiluong.Text));
             }
         }
     }

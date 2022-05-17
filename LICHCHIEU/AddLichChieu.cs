@@ -12,6 +12,7 @@ namespace DoAnRapChieuPhim
 {
     public partial class AddLichChieu : Form
     {
+        LICHCHIEU lc = new LICHCHIEU();
         int state;
         string malc, maphim, mapc;
         DateTime ngaykc;
@@ -47,6 +48,11 @@ namespace DoAnRapChieuPhim
             {
                 err_sotien.Clear();
                 //add//
+                lc.AddLichChieu(tbx_malc.Text, 
+                                cbx_mapc.SelectedValue.ToString(), 
+                                cbx_maphim.SelectedValue.ToString(), 
+                                dateTimePicker1.Value, 
+                                Convert.ToInt32(tbx_sotien.Text));
             }
         }
 
@@ -60,12 +66,18 @@ namespace DoAnRapChieuPhim
             {
                 err_sotien.Clear();
                 //update//
+                lc.UpdateLichChieu(tbx_malc.Text,
+                                cbx_mapc.SelectedValue.ToString(),
+                                cbx_maphim.SelectedValue.ToString(),
+                                dateTimePicker1.Value,
+                                Convert.ToInt32(tbx_sotien.Text));
             }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
             //del
+            lc.DelLichChieu(tbx_malc.Text);
         }
 
         public AddLichChieu(int state, string malc, string maphim, string mapc, DateTime ngaykc, int sotien)
@@ -81,6 +93,10 @@ namespace DoAnRapChieuPhim
 
         private void AddLichChieu_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet16.PHONGCHIEU' table. You can move, or remove it, as needed.
+            this.pHONGCHIEUTableAdapter.Fill(this.doAnRapChieuPhim03DataSet16.PHONGCHIEU);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet15.PHIM' table. You can move, or remove it, as needed.
+            this.pHIMTableAdapter.Fill(this.doAnRapChieuPhim03DataSet15.PHIM);
             switch (state)
             {
                 case 1: //ADD
@@ -105,6 +121,8 @@ namespace DoAnRapChieuPhim
                         tbx_malc.Text = malc;
                         tbx_sotien.Text = sotien.ToString();
                         //thieu mapc maphim
+                        cbx_mapc.SelectedValue = mapc;
+                        cbx_maphim.SelectedValue = maphim;
                         dateTimePicker1.Value = ngaykc;
                         break;
                     }

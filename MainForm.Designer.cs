@@ -39,6 +39,8 @@ namespace DoAnRapChieuPhim
             this.button_thongke = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.trackBar_thoiluong = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.tbx_find_tenphim = new System.Windows.Forms.TextBox();
             this.button_add_phim = new System.Windows.Forms.Button();
@@ -136,13 +138,12 @@ namespace DoAnRapChieuPhim
             this.lICHCHIEUBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.lICHCHIEUTableAdapter1 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet12TableAdapters.LICHCHIEUTableAdapter();
             this.pHONGBANTableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet13TableAdapters.PHONGBANTableAdapter();
-            this.trackBar_thoiluong = new System.Windows.Forms.TrackBar();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_thoiluong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_phim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHIMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet5)).BeginInit();
@@ -176,7 +177,6 @@ namespace DoAnRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_thoiluong)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -265,6 +265,7 @@ namespace DoAnRapChieuPhim
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(693, 377);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
             // 
             // tabPage1
             // 
@@ -282,6 +283,22 @@ namespace DoAnRapChieuPhim
             this.tabPage1.Size = new System.Drawing.Size(685, 351);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Phim";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(461, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Thời lượng :";
+            // 
+            // trackBar_thoiluong
+            // 
+            this.trackBar_thoiluong.Location = new System.Drawing.Point(530, 82);
+            this.trackBar_thoiluong.Name = "trackBar_thoiluong";
+            this.trackBar_thoiluong.Size = new System.Drawing.Size(130, 45);
+            this.trackBar_thoiluong.TabIndex = 5;
             // 
             // label2
             // 
@@ -323,6 +340,8 @@ namespace DoAnRapChieuPhim
             // 
             // dataGridView_phim
             // 
+            this.dataGridView_phim.AllowUserToAddRows = false;
+            this.dataGridView_phim.AllowUserToDeleteRows = false;
             this.dataGridView_phim.AutoGenerateColumns = false;
             this.dataGridView_phim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_phim.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -332,6 +351,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_phim.DataSource = this.pHIMBindingSource;
             this.dataGridView_phim.Location = new System.Drawing.Point(6, 6);
             this.dataGridView_phim.Name = "dataGridView_phim";
+            this.dataGridView_phim.ReadOnly = true;
             this.dataGridView_phim.Size = new System.Drawing.Size(439, 297);
             this.dataGridView_phim.TabIndex = 0;
             this.dataGridView_phim.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_phim_CellDoubleClick);
@@ -386,6 +406,7 @@ namespace DoAnRapChieuPhim
             this.button_refresh_phongchieu.TabIndex = 4;
             this.button_refresh_phongchieu.Text = "Refresh";
             this.button_refresh_phongchieu.UseVisualStyleBackColor = false;
+            this.button_refresh_phongchieu.Click += new System.EventHandler(this.button_refresh_phongchieu_Click);
             // 
             // button_add_phongchieu
             // 
@@ -400,6 +421,8 @@ namespace DoAnRapChieuPhim
             // 
             // dataGridView_phongchieu
             // 
+            this.dataGridView_phongchieu.AllowUserToAddRows = false;
+            this.dataGridView_phongchieu.AllowUserToDeleteRows = false;
             this.dataGridView_phongchieu.AutoGenerateColumns = false;
             this.dataGridView_phongchieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_phongchieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -409,6 +432,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_phongchieu.DataSource = this.pHONGCHIEUBindingSource;
             this.dataGridView_phongchieu.Location = new System.Drawing.Point(6, 3);
             this.dataGridView_phongchieu.Name = "dataGridView_phongchieu";
+            this.dataGridView_phongchieu.ReadOnly = true;
             this.dataGridView_phongchieu.Size = new System.Drawing.Size(439, 297);
             this.dataGridView_phongchieu.TabIndex = 1;
             this.dataGridView_phongchieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_phongchieu_CellDoubleClick);
@@ -462,6 +486,7 @@ namespace DoAnRapChieuPhim
             this.button_refresh_khachhang.TabIndex = 4;
             this.button_refresh_khachhang.Text = "Refresh";
             this.button_refresh_khachhang.UseVisualStyleBackColor = false;
+            this.button_refresh_khachhang.Click += new System.EventHandler(this.button_refresh_khachhang_Click);
             // 
             // button_add_khachhang
             // 
@@ -476,6 +501,8 @@ namespace DoAnRapChieuPhim
             // 
             // dataGridView_khachhang
             // 
+            this.dataGridView_khachhang.AllowUserToAddRows = false;
+            this.dataGridView_khachhang.AllowUserToDeleteRows = false;
             this.dataGridView_khachhang.AutoGenerateColumns = false;
             this.dataGridView_khachhang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_khachhang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -488,6 +515,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_khachhang.DataSource = this.kHACHHANGBindingSource;
             this.dataGridView_khachhang.Location = new System.Drawing.Point(8, 3);
             this.dataGridView_khachhang.Name = "dataGridView_khachhang";
+            this.dataGridView_khachhang.ReadOnly = true;
             this.dataGridView_khachhang.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_khachhang.TabIndex = 1;
             this.dataGridView_khachhang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_khachhang_CellDoubleClick);
@@ -559,6 +587,7 @@ namespace DoAnRapChieuPhim
             this.button_refresh_nhanvien.TabIndex = 4;
             this.button_refresh_nhanvien.Text = "Refresh";
             this.button_refresh_nhanvien.UseVisualStyleBackColor = false;
+            this.button_refresh_nhanvien.Click += new System.EventHandler(this.button_refresh_nhanvien_Click);
             // 
             // button_add_nhanvien
             // 
@@ -573,6 +602,8 @@ namespace DoAnRapChieuPhim
             // 
             // dataGridView_nhanvien
             // 
+            this.dataGridView_nhanvien.AllowUserToAddRows = false;
+            this.dataGridView_nhanvien.AllowUserToDeleteRows = false;
             this.dataGridView_nhanvien.AutoGenerateColumns = false;
             this.dataGridView_nhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_nhanvien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -586,6 +617,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_nhanvien.DataSource = this.nHANVIENBindingSource;
             this.dataGridView_nhanvien.Location = new System.Drawing.Point(8, 3);
             this.dataGridView_nhanvien.Name = "dataGridView_nhanvien";
+            this.dataGridView_nhanvien.ReadOnly = true;
             this.dataGridView_nhanvien.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_nhanvien.TabIndex = 1;
             this.dataGridView_nhanvien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_nhanvien_CellDoubleClick);
@@ -678,6 +710,8 @@ namespace DoAnRapChieuPhim
             // 
             // dataGridView_doan
             // 
+            this.dataGridView_doan.AllowUserToAddRows = false;
+            this.dataGridView_doan.AllowUserToDeleteRows = false;
             this.dataGridView_doan.AutoGenerateColumns = false;
             this.dataGridView_doan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_doan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -687,6 +721,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_doan.DataSource = this.dOANBindingSource;
             this.dataGridView_doan.Location = new System.Drawing.Point(8, 3);
             this.dataGridView_doan.Name = "dataGridView_doan";
+            this.dataGridView_doan.ReadOnly = true;
             this.dataGridView_doan.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_doan.TabIndex = 1;
             this.dataGridView_doan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_doan_CellDoubleClick);
@@ -754,6 +789,8 @@ namespace DoAnRapChieuPhim
             // 
             // dataGridView_ve
             // 
+            this.dataGridView_ve.AllowUserToAddRows = false;
+            this.dataGridView_ve.AllowUserToDeleteRows = false;
             this.dataGridView_ve.AutoGenerateColumns = false;
             this.dataGridView_ve.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ve.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -768,6 +805,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_ve.DataSource = this.vEBindingSource;
             this.dataGridView_ve.Location = new System.Drawing.Point(8, 3);
             this.dataGridView_ve.Name = "dataGridView_ve";
+            this.dataGridView_ve.ReadOnly = true;
             this.dataGridView_ve.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_ve.TabIndex = 1;
             this.dataGridView_ve.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_ve_CellDoubleClick);
@@ -844,6 +882,8 @@ namespace DoAnRapChieuPhim
             // 
             // dataGridView_lichchieu
             // 
+            this.dataGridView_lichchieu.AllowUserToAddRows = false;
+            this.dataGridView_lichchieu.AllowUserToDeleteRows = false;
             this.dataGridView_lichchieu.AutoGenerateColumns = false;
             this.dataGridView_lichchieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_lichchieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -855,6 +895,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_lichchieu.DataSource = this.lICHCHIEUBindingSource;
             this.dataGridView_lichchieu.Location = new System.Drawing.Point(8, 6);
             this.dataGridView_lichchieu.Name = "dataGridView_lichchieu";
+            this.dataGridView_lichchieu.ReadOnly = true;
             this.dataGridView_lichchieu.Size = new System.Drawing.Size(440, 297);
             this.dataGridView_lichchieu.TabIndex = 6;
             this.dataGridView_lichchieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_lichchieu_CellDoubleClick);
@@ -919,6 +960,7 @@ namespace DoAnRapChieuPhim
             this.btn_refresh_lichchieu.TabIndex = 4;
             this.btn_refresh_lichchieu.Text = "Refresh";
             this.btn_refresh_lichchieu.UseVisualStyleBackColor = false;
+            this.btn_refresh_lichchieu.Click += new System.EventHandler(this.btn_refresh_lichchieu_Click);
             // 
             // tabPage8
             // 
@@ -934,6 +976,8 @@ namespace DoAnRapChieuPhim
             // 
             // dataGridView_phongban
             // 
+            this.dataGridView_phongban.AllowUserToAddRows = false;
+            this.dataGridView_phongban.AllowUserToDeleteRows = false;
             this.dataGridView_phongban.AutoGenerateColumns = false;
             this.dataGridView_phongban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_phongban.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -942,6 +986,7 @@ namespace DoAnRapChieuPhim
             this.dataGridView_phongban.DataSource = this.pHONGBANBindingSource;
             this.dataGridView_phongban.Location = new System.Drawing.Point(7, 3);
             this.dataGridView_phongban.Name = "dataGridView_phongban";
+            this.dataGridView_phongban.ReadOnly = true;
             this.dataGridView_phongban.Size = new System.Drawing.Size(440, 300);
             this.dataGridView_phongban.TabIndex = 9;
             this.dataGridView_phongban.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_phongban_CellDoubleClick);
@@ -1036,22 +1081,6 @@ namespace DoAnRapChieuPhim
             // 
             this.pHONGBANTableAdapter.ClearBeforeFill = true;
             // 
-            // trackBar_thoiluong
-            // 
-            this.trackBar_thoiluong.Location = new System.Drawing.Point(530, 82);
-            this.trackBar_thoiluong.Name = "trackBar_thoiluong";
-            this.trackBar_thoiluong.Size = new System.Drawing.Size(130, 45);
-            this.trackBar_thoiluong.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(461, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Thời lượng :";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1071,6 +1100,7 @@ namespace DoAnRapChieuPhim
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_thoiluong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_phim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHIMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet5)).EndInit();
@@ -1104,7 +1134,6 @@ namespace DoAnRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_thoiluong)).EndInit();
             this.ResumeLayout(false);
 
         }

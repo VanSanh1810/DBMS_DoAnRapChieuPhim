@@ -51,9 +51,14 @@ namespace DoAnRapChieuPhim
             this.err_ten = new System.Windows.Forms.ErrorProvider(this.components);
             this.err_mapb = new System.Windows.Forms.ErrorProvider(this.components);
             this.err_sdt = new System.Windows.Forms.ErrorProvider(this.components);
+            this.doAnRapChieuPhim03DataSet14 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet14();
+            this.pHONGBANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pHONGBANTableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet14TableAdapters.PHONGBANTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.err_ten)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err_mapb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err_sdt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHONGBANBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -213,11 +218,14 @@ namespace DoAnRapChieuPhim
             // 
             // cbx_mapb
             // 
+            this.cbx_mapb.DataSource = this.pHONGBANBindingSource;
+            this.cbx_mapb.DisplayMember = "TenPB";
             this.cbx_mapb.FormattingEnabled = true;
             this.cbx_mapb.Location = new System.Drawing.Point(96, 114);
             this.cbx_mapb.Name = "cbx_mapb";
             this.cbx_mapb.Size = new System.Drawing.Size(174, 21);
             this.cbx_mapb.TabIndex = 17;
+            this.cbx_mapb.ValueMember = "MaPB";
             // 
             // err_ten
             // 
@@ -230,6 +238,20 @@ namespace DoAnRapChieuPhim
             // err_sdt
             // 
             this.err_sdt.ContainerControl = this;
+            // 
+            // doAnRapChieuPhim03DataSet14
+            // 
+            this.doAnRapChieuPhim03DataSet14.DataSetName = "DoAnRapChieuPhim03DataSet14";
+            this.doAnRapChieuPhim03DataSet14.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pHONGBANBindingSource
+            // 
+            this.pHONGBANBindingSource.DataMember = "PHONGBAN";
+            this.pHONGBANBindingSource.DataSource = this.doAnRapChieuPhim03DataSet14;
+            // 
+            // pHONGBANTableAdapter
+            // 
+            this.pHONGBANTableAdapter.ClearBeforeFill = true;
             // 
             // AddNhanVien
             // 
@@ -260,6 +282,8 @@ namespace DoAnRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.err_ten)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err_mapb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err_sdt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHONGBANBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +312,8 @@ namespace DoAnRapChieuPhim
         private System.Windows.Forms.ErrorProvider err_ten;
         private System.Windows.Forms.ErrorProvider err_mapb;
         private System.Windows.Forms.ErrorProvider err_sdt;
+        private DoAnRapChieuPhim03DataSet14 doAnRapChieuPhim03DataSet14;
+        private System.Windows.Forms.BindingSource pHONGBANBindingSource;
+        private DoAnRapChieuPhim03DataSet14TableAdapters.PHONGBANTableAdapter pHONGBANTableAdapter;
     }
 }

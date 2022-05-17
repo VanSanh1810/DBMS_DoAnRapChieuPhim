@@ -187,5 +187,47 @@ namespace DoAnRapChieuPhim
         {
             this.pHIMTableAdapter.Fill(this.doAnRapChieuPhim03DataSet5.PHIM);
         }
+
+        private void button_refresh_phongchieu_Click(object sender, EventArgs e)
+        {
+            this.pHONGCHIEUTableAdapter.Fill(this.doAnRapChieuPhim03DataSet6.PHONGCHIEU);
+        }
+
+        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet13.PHONGBAN' table. You can move, or remove it, as needed.
+            this.pHONGBANTableAdapter.Fill(this.doAnRapChieuPhim03DataSet13.PHONGBAN);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet12.LICHCHIEU' table. You can move, or remove it, as needed.
+            this.lICHCHIEUTableAdapter1.Fill(this.doAnRapChieuPhim03DataSet12.LICHCHIEU);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet11.LICHCHIEU' table. You can move, or remove it, as needed.
+            this.lICHCHIEUTableAdapter.Fill(this.doAnRapChieuPhim03DataSet11.LICHCHIEU);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet10.VE' table. You can move, or remove it, as needed.
+            this.vETableAdapter.Fill(this.doAnRapChieuPhim03DataSet10.VE);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet9.DOAN' table. You can move, or remove it, as needed.
+            this.dOANTableAdapter.Fill(this.doAnRapChieuPhim03DataSet9.DOAN);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet8.NHANVIEN' table. You can move, or remove it, as needed.
+            this.nHANVIENTableAdapter.Fill(this.doAnRapChieuPhim03DataSet8.NHANVIEN);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet7.KHACHHANG' table. You can move, or remove it, as needed.
+            this.kHACHHANGTableAdapter.Fill(this.doAnRapChieuPhim03DataSet7.KHACHHANG);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet6.PHONGCHIEU' table. You can move, or remove it, as needed.
+            this.pHONGCHIEUTableAdapter.Fill(this.doAnRapChieuPhim03DataSet6.PHONGCHIEU);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet5.PHIM' table. You can move, or remove it, as needed.
+            this.pHIMTableAdapter.Fill(this.doAnRapChieuPhim03DataSet5.PHIM);
+        }
+
+        private void button_refresh_nhanvien_Click(object sender, EventArgs e)
+        {
+            this.nHANVIENTableAdapter.Fill(this.doAnRapChieuPhim03DataSet8.NHANVIEN);
+        }
+
+        private void button_refresh_khachhang_Click(object sender, EventArgs e)
+        {
+            this.kHACHHANGTableAdapter.Fill(this.doAnRapChieuPhim03DataSet7.KHACHHANG);
+        }
+
+        private void btn_refresh_lichchieu_Click(object sender, EventArgs e)
+        {
+            this.lICHCHIEUTableAdapter.Fill(this.doAnRapChieuPhim03DataSet11.LICHCHIEU);
+        }
     }
 }
