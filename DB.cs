@@ -10,7 +10,7 @@ namespace DoAnRapChieuPhim
 {
     class DB
     {
-        SqlConnection con = new SqlConnection(@"Data Source=VANSANH\SQLEXPRESS;Initial Catalog=QLSC_RX;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection con = new SqlConnection(@"Data Source=VANSANH\SQLEXPRESS;Initial Catalog=DoAnRapChieuPhim03;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         public SqlConnection getConnection
         {
             get

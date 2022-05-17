@@ -52,12 +52,6 @@
     <Compile Include="AddDoAn.Designer.cs">
       <DependentUpon>AddDoAn.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddGhe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddGhe.Designer.cs">
-      <DependentUpon>AddGhe.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +94,12 @@
     <Compile Include="AddVe.Designer.cs">
       <DependentUpon>AddVe.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB.cs" />
+    <Compile Include="DoAnRapChieuPhim03DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoAnRapChieuPhim03DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +110,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddDoAn.resx">
       <DependentUpon>AddDoAn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddGhe.resx">
-      <DependentUpon>AddGhe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddKhachHang.resx">
       <DependentUpon>AddKhachHang.cs</DependentUpon>
@@ -148,6 +145,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DoAnRapChieuPhim03DataSet.xsc">
+      <DependentUpon>DoAnRapChieuPhim03DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DoAnRapChieuPhim03DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DoAnRapChieuPhim03DataSet.xss">
+      <DependentUpon>DoAnRapChieuPhim03DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

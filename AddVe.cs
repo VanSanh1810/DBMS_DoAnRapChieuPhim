@@ -15,8 +15,43 @@ namespace DoAnRapChieuPhim
         int state;
         string mave, manv, makh, malc, madoan, maghe;
 
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        DateTime ngaydat;
+        int giave;
+        public AddVe(int state, string mave, string makh, string malc, string madoan, string maghe, DateTime ngaydat, int giave)
+        {
+            InitializeComponent();
+            this.state = state;
+            this.mave = mave;
+            this.makh = makh;
+            this.malc = malc;
+            this.madoan = madoan;
+            this.maghe = maghe;
+            this.ngaydat = ngaydat;
+            this.giave = giave;
+        }
         private void AddVe_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet2.GHE' table. You can move, or remove it, as needed.
+            this.gHETableAdapter.Fill(this.doAnRapChieuPhim03DataSet2.GHE);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet1.PHIM' table. You can move, or remove it, as needed.
+            this.pHIMTableAdapter.Fill(this.doAnRapChieuPhim03DataSet1.PHIM);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet.KHACHHANG' table. You can move, or remove it, as needed.
+            this.kHACHHANGTableAdapter.Fill(this.doAnRapChieuPhim03DataSet.KHACHHANG);
             switch (state)
             {
                 case 1: ///ADD
@@ -40,21 +75,6 @@ namespace DoAnRapChieuPhim
                         break;
                     }
             }
-        }
-
-        DateTime ngaydat;
-        int giave;
-        public AddVe(int state, string mave, string makh, string malc, string madoan, string maghe, DateTime ngaydat, int giave)
-        {
-            InitializeComponent();
-            this.state = state;
-            this.mave = mave;
-            this.makh = makh;
-            this.malc = malc;
-            this.madoan = madoan;
-            this.maghe = maghe;
-            this.ngaydat = ngaydat;
-            this.giave = giave;
         }
     }
 }

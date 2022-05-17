@@ -29,31 +29,47 @@ namespace DoAnRapChieuPhim
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.tbx_ve = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cbx_makh = new System.Windows.Forms.ComboBox();
+            this.cbx_lichchieu = new System.Windows.Forms.ComboBox();
+            this.cbx_madoan = new System.Windows.Forms.ComboBox();
+            this.cbx_maghe = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.cbx_phim = new System.Windows.Forms.ComboBox();
+            this.dataGridView_LC = new System.Windows.Forms.DataGridView();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_del = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView_KH = new System.Windows.Forms.DataGridView();
+            this.tbx_findTenKH = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.doAnRapChieuPhim03DataSet = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet();
+            this.kHACHHANGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kHACHHANGTableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSetTableAdapters.KHACHHANGTableAdapter();
+            this.doAnRapChieuPhim03DataSet1 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet1();
+            this.pHIMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pHIMTableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet1TableAdapters.PHIMTableAdapter();
+            this.doAnRapChieuPhim03DataSet2 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet2();
+            this.gHEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gHETableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet2TableAdapters.GHETableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LC)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_KH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHACHHANGBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHIMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gHEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,19 +81,10 @@ namespace DoAnRapChieuPhim
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã vé :";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mã nhân viên :";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 116);
+            this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 2;
@@ -95,7 +102,7 @@ namespace DoAnRapChieuPhim
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 352);
+            this.label5.Location = new System.Drawing.Point(12, 406);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 4;
@@ -104,119 +111,68 @@ namespace DoAnRapChieuPhim
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 408);
+            this.label6.Location = new System.Drawing.Point(409, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Mã ghế :";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 463);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Ngày đặt :";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 518);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Giá vé :";
-            // 
             // tbx_ve
             // 
-            this.tbx_ve.Location = new System.Drawing.Point(113, 17);
+            this.tbx_ve.Location = new System.Drawing.Point(223, 17);
             this.tbx_ve.Name = "tbx_ve";
             this.tbx_ve.ReadOnly = true;
             this.tbx_ve.Size = new System.Drawing.Size(150, 20);
             this.tbx_ve.TabIndex = 8;
             // 
-            // textBox2
+            // cbx_makh
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 515);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 20);
-            this.textBox2.TabIndex = 9;
+            this.cbx_makh.DataSource = this.kHACHHANGBindingSource;
+            this.cbx_makh.DisplayMember = "MaKH";
+            this.cbx_makh.FormattingEnabled = true;
+            this.cbx_makh.Location = new System.Drawing.Point(48, 16);
+            this.cbx_makh.Name = "cbx_makh";
+            this.cbx_makh.Size = new System.Drawing.Size(129, 21);
+            this.cbx_makh.TabIndex = 11;
+            this.cbx_makh.ValueMember = "MaKH";
             // 
-            // dateTimePicker1
+            // cbx_lichchieu
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(113, 457);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(150, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.cbx_lichchieu.FormattingEnabled = true;
+            this.cbx_lichchieu.Location = new System.Drawing.Point(6, 16);
+            this.cbx_lichchieu.Name = "cbx_lichchieu";
+            this.cbx_lichchieu.Size = new System.Drawing.Size(105, 21);
+            this.cbx_lichchieu.TabIndex = 13;
             // 
-            // comboBox1
+            // cbx_madoan
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(113, 113);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 21);
-            this.comboBox1.TabIndex = 11;
+            this.cbx_madoan.FormattingEnabled = true;
+            this.cbx_madoan.Location = new System.Drawing.Point(113, 403);
+            this.cbx_madoan.Name = "cbx_madoan";
+            this.cbx_madoan.Size = new System.Drawing.Size(150, 21);
+            this.cbx_madoan.TabIndex = 14;
             // 
-            // comboBox2
+            // cbx_maghe
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(113, 65);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 21);
-            this.comboBox2.TabIndex = 12;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(6, 16);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(105, 21);
-            this.comboBox3.TabIndex = 13;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(113, 349);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(150, 21);
-            this.comboBox4.TabIndex = 14;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(113, 405);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(150, 21);
-            this.comboBox5.TabIndex = 15;
+            this.cbx_maghe.FormattingEnabled = true;
+            this.cbx_maghe.Location = new System.Drawing.Point(415, 62);
+            this.cbx_maghe.Name = "cbx_maghe";
+            this.cbx_maghe.Size = new System.Drawing.Size(125, 21);
+            this.cbx_maghe.TabIndex = 15;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.comboBox6);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.cbx_phim);
+            this.panel1.Controls.Add(this.dataGridView_LC);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Location = new System.Drawing.Point(12, 171);
+            this.panel1.Controls.Add(this.cbx_lichchieu);
+            this.panel1.Controls.Add(this.cbx_maghe);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Location = new System.Drawing.Point(12, 225);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(543, 172);
             this.panel1.TabIndex = 16;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(117, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(289, 166);
-            this.dataGridView1.TabIndex = 17;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(412, 16);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(128, 21);
-            this.comboBox6.TabIndex = 18;
             // 
             // label9
             // 
@@ -227,62 +183,162 @@ namespace DoAnRapChieuPhim
             this.label9.TabIndex = 19;
             this.label9.Text = "Phim";
             // 
+            // cbx_phim
+            // 
+            this.cbx_phim.DataSource = this.pHIMBindingSource;
+            this.cbx_phim.DisplayMember = "TenPhim";
+            this.cbx_phim.FormattingEnabled = true;
+            this.cbx_phim.Location = new System.Drawing.Point(412, 16);
+            this.cbx_phim.Name = "cbx_phim";
+            this.cbx_phim.Size = new System.Drawing.Size(128, 21);
+            this.cbx_phim.TabIndex = 18;
+            this.cbx_phim.ValueMember = "MaPhim";
+            // 
+            // dataGridView_LC
+            // 
+            this.dataGridView_LC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_LC.Location = new System.Drawing.Point(117, 3);
+            this.dataGridView_LC.Name = "dataGridView_LC";
+            this.dataGridView_LC.Size = new System.Drawing.Size(289, 166);
+            this.dataGridView_LC.TabIndex = 17;
+            // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(18, 566);
+            this.btn_add.Location = new System.Drawing.Point(18, 455);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(112, 98);
             this.btn_add.TabIndex = 17;
             this.btn_add.Text = "ADD";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(222, 566);
+            this.btn_edit.Location = new System.Drawing.Point(223, 455);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(112, 98);
             this.btn_edit.TabIndex = 18;
             this.btn_edit.Text = "UPDATE";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_del
             // 
-            this.btn_del.Location = new System.Drawing.Point(424, 566);
+            this.btn_del.Location = new System.Drawing.Point(424, 455);
             this.btn_del.Name = "btn_del";
             this.btn_del.Size = new System.Drawing.Size(112, 98);
             this.btn_del.TabIndex = 19;
             this.btn_del.Text = "DELETE";
             this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.tbx_findTenKH);
+            this.panel2.Controls.Add(this.dataGridView_KH);
+            this.panel2.Controls.Add(this.cbx_makh);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(12, 43);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(543, 176);
+            this.panel2.TabIndex = 20;
+            // 
+            // dataGridView_KH
+            // 
+            this.dataGridView_KH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_KH.Location = new System.Drawing.Point(183, 3);
+            this.dataGridView_KH.Name = "dataGridView_KH";
+            this.dataGridView_KH.Size = new System.Drawing.Size(289, 166);
+            this.dataGridView_KH.TabIndex = 20;
+            // 
+            // tbx_findTenKH
+            // 
+            this.tbx_findTenKH.Location = new System.Drawing.Point(48, 69);
+            this.tbx_findTenKH.Name = "tbx_findTenKH";
+            this.tbx_findTenKH.Size = new System.Drawing.Size(129, 20);
+            this.tbx_findTenKH.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Tên :";
+            // 
+            // doAnRapChieuPhim03DataSet
+            // 
+            this.doAnRapChieuPhim03DataSet.DataSetName = "DoAnRapChieuPhim03DataSet";
+            this.doAnRapChieuPhim03DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // kHACHHANGBindingSource
+            // 
+            this.kHACHHANGBindingSource.DataMember = "KHACHHANG";
+            this.kHACHHANGBindingSource.DataSource = this.doAnRapChieuPhim03DataSet;
+            // 
+            // kHACHHANGTableAdapter
+            // 
+            this.kHACHHANGTableAdapter.ClearBeforeFill = true;
+            // 
+            // doAnRapChieuPhim03DataSet1
+            // 
+            this.doAnRapChieuPhim03DataSet1.DataSetName = "DoAnRapChieuPhim03DataSet1";
+            this.doAnRapChieuPhim03DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pHIMBindingSource
+            // 
+            this.pHIMBindingSource.DataMember = "PHIM";
+            this.pHIMBindingSource.DataSource = this.doAnRapChieuPhim03DataSet1;
+            // 
+            // pHIMTableAdapter
+            // 
+            this.pHIMTableAdapter.ClearBeforeFill = true;
+            // 
+            // doAnRapChieuPhim03DataSet2
+            // 
+            this.doAnRapChieuPhim03DataSet2.DataSetName = "DoAnRapChieuPhim03DataSet2";
+            this.doAnRapChieuPhim03DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gHEBindingSource
+            // 
+            this.gHEBindingSource.DataMember = "GHE";
+            this.gHEBindingSource.DataSource = this.doAnRapChieuPhim03DataSet2;
+            // 
+            // gHETableAdapter
+            // 
+            this.gHETableAdapter.ClearBeforeFill = true;
             // 
             // AddVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 676);
+            this.ClientSize = new System.Drawing.Size(567, 573);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btn_del);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.cbx_madoan);
             this.Controls.Add(this.tbx_ve);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddVe";
             this.Text = "AddVe";
             this.Load += new System.EventHandler(this.AddVe_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LC)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_KH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kHACHHANGBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHIMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gHEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,27 +347,34 @@ namespace DoAnRapChieuPhim
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbx_ve;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cbx_makh;
+        private System.Windows.Forms.ComboBox cbx_lichchieu;
+        private System.Windows.Forms.ComboBox cbx_madoan;
+        private System.Windows.Forms.ComboBox cbx_maghe;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_LC;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cbx_phim;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_del;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView_KH;
+        private System.Windows.Forms.TextBox tbx_findTenKH;
+        private System.Windows.Forms.Label label2;
+        private DoAnRapChieuPhim03DataSet doAnRapChieuPhim03DataSet;
+        private System.Windows.Forms.BindingSource kHACHHANGBindingSource;
+        private DoAnRapChieuPhim03DataSetTableAdapters.KHACHHANGTableAdapter kHACHHANGTableAdapter;
+        private DoAnRapChieuPhim03DataSet1 doAnRapChieuPhim03DataSet1;
+        private System.Windows.Forms.BindingSource pHIMBindingSource;
+        private DoAnRapChieuPhim03DataSet1TableAdapters.PHIMTableAdapter pHIMTableAdapter;
+        private DoAnRapChieuPhim03DataSet2 doAnRapChieuPhim03DataSet2;
+        private System.Windows.Forms.BindingSource gHEBindingSource;
+        private DoAnRapChieuPhim03DataSet2TableAdapters.GHETableAdapter gHETableAdapter;
     }
 }
