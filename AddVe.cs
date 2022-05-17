@@ -14,29 +14,30 @@ namespace DoAnRapChieuPhim
     {
         int state;
         string mave, manv, makh, malc, madoan, maghe;
-
-        private void btn_edit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_del_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-
-        }
-
         DateTime ngaydat;
         int giave;
-        public AddVe(int state, string mave, string makh, string malc, string madoan, string maghe, DateTime ngaydat, int giave)
+
+        private void tbx_findTenKH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void cbx_phim_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbx_lichchieu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public AddVe(int state, string mave,string manv, string makh, string malc, string madoan, string maghe, DateTime ngaydat, int giave)
         {
             InitializeComponent();
             this.state = state;
             this.mave = mave;
+            this.manv = manv;
             this.makh = makh;
             this.malc = malc;
             this.madoan = madoan;
@@ -46,6 +47,10 @@ namespace DoAnRapChieuPhim
         }
         private void AddVe_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet4.LICHCHIEU' table. You can move, or remove it, as needed.
+            this.lICHCHIEUTableAdapter.Fill(this.doAnRapChieuPhim03DataSet4.LICHCHIEU);
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet3.DOAN' table. You can move, or remove it, as needed.
+            this.dOANTableAdapter.Fill(this.doAnRapChieuPhim03DataSet3.DOAN);
             // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet2.GHE' table. You can move, or remove it, as needed.
             this.gHETableAdapter.Fill(this.doAnRapChieuPhim03DataSet2.GHE);
             // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet1.PHIM' table. You can move, or remove it, as needed.
@@ -65,6 +70,7 @@ namespace DoAnRapChieuPhim
                                           + DateTime.Now.Hour.ToString()
                                           + DateTime.Now.Minute.ToString()
                                           + DateTime.Now.Second.ToString();
+                        ngaydat = DateTime.Now.Date;
                         break;
 
                     }
@@ -75,6 +81,20 @@ namespace DoAnRapChieuPhim
                         break;
                     }
             }
+        }
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

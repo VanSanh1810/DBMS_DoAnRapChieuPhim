@@ -60,6 +60,13 @@ namespace DoAnRapChieuPhim
             this.doAnRapChieuPhim03DataSet2 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet2();
             this.gHEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gHETableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet2TableAdapters.GHETableAdapter();
+            this.doAnRapChieuPhim03DataSet3 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet3();
+            this.dOANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dOANTableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet3TableAdapters.DOANTableAdapter();
+            this.doAnRapChieuPhim03DataSet4 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet4();
+            this.lICHCHIEUBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lICHCHIEUTableAdapter = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet4TableAdapters.LICHCHIEUTableAdapter();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_LC)).BeginInit();
             this.panel2.SuspendLayout();
@@ -70,6 +77,11 @@ namespace DoAnRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.pHIMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gHEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOANBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +123,7 @@ namespace DoAnRapChieuPhim
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(409, 46);
+            this.label6.Location = new System.Drawing.Point(409, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 5;
@@ -138,30 +150,38 @@ namespace DoAnRapChieuPhim
             // 
             // cbx_lichchieu
             // 
+            this.cbx_lichchieu.DataSource = this.lICHCHIEUBindingSource;
+            this.cbx_lichchieu.DisplayMember = "MaLC";
             this.cbx_lichchieu.FormattingEnabled = true;
             this.cbx_lichchieu.Location = new System.Drawing.Point(6, 16);
             this.cbx_lichchieu.Name = "cbx_lichchieu";
             this.cbx_lichchieu.Size = new System.Drawing.Size(105, 21);
             this.cbx_lichchieu.TabIndex = 13;
+            this.cbx_lichchieu.ValueMember = "MaLC";
+            this.cbx_lichchieu.SelectedIndexChanged += new System.EventHandler(this.cbx_lichchieu_SelectedIndexChanged);
             // 
             // cbx_madoan
             // 
+            this.cbx_madoan.DataSource = this.dOANBindingSource;
+            this.cbx_madoan.DisplayMember = "TenMon";
             this.cbx_madoan.FormattingEnabled = true;
             this.cbx_madoan.Location = new System.Drawing.Point(113, 403);
             this.cbx_madoan.Name = "cbx_madoan";
             this.cbx_madoan.Size = new System.Drawing.Size(150, 21);
             this.cbx_madoan.TabIndex = 14;
+            this.cbx_madoan.ValueMember = "MaDoAn";
             // 
             // cbx_maghe
             // 
             this.cbx_maghe.FormattingEnabled = true;
-            this.cbx_maghe.Location = new System.Drawing.Point(415, 62);
+            this.cbx_maghe.Location = new System.Drawing.Point(412, 16);
             this.cbx_maghe.Name = "cbx_maghe";
-            this.cbx_maghe.Size = new System.Drawing.Size(125, 21);
+            this.cbx_maghe.Size = new System.Drawing.Size(128, 21);
             this.cbx_maghe.TabIndex = 15;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.cbx_phim);
             this.panel1.Controls.Add(this.dataGridView_LC);
@@ -177,7 +197,7 @@ namespace DoAnRapChieuPhim
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(412, 0);
+            this.label9.Location = new System.Drawing.Point(251, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 13);
             this.label9.TabIndex = 19;
@@ -188,18 +208,19 @@ namespace DoAnRapChieuPhim
             this.cbx_phim.DataSource = this.pHIMBindingSource;
             this.cbx_phim.DisplayMember = "TenPhim";
             this.cbx_phim.FormattingEnabled = true;
-            this.cbx_phim.Location = new System.Drawing.Point(412, 16);
+            this.cbx_phim.Location = new System.Drawing.Point(257, 16);
             this.cbx_phim.Name = "cbx_phim";
             this.cbx_phim.Size = new System.Drawing.Size(128, 21);
             this.cbx_phim.TabIndex = 18;
             this.cbx_phim.ValueMember = "MaPhim";
+            this.cbx_phim.SelectedIndexChanged += new System.EventHandler(this.cbx_phim_SelectedIndexChanged);
             // 
             // dataGridView_LC
             // 
             this.dataGridView_LC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_LC.Location = new System.Drawing.Point(117, 3);
+            this.dataGridView_LC.Location = new System.Drawing.Point(6, 46);
             this.dataGridView_LC.Name = "dataGridView_LC";
-            this.dataGridView_LC.Size = new System.Drawing.Size(289, 166);
+            this.dataGridView_LC.Size = new System.Drawing.Size(245, 123);
             this.dataGridView_LC.TabIndex = 17;
             // 
             // btn_add
@@ -247,7 +268,7 @@ namespace DoAnRapChieuPhim
             // dataGridView_KH
             // 
             this.dataGridView_KH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_KH.Location = new System.Drawing.Point(183, 3);
+            this.dataGridView_KH.Location = new System.Drawing.Point(251, 3);
             this.dataGridView_KH.Name = "dataGridView_KH";
             this.dataGridView_KH.Size = new System.Drawing.Size(289, 166);
             this.dataGridView_KH.TabIndex = 20;
@@ -258,6 +279,7 @@ namespace DoAnRapChieuPhim
             this.tbx_findTenKH.Name = "tbx_findTenKH";
             this.tbx_findTenKH.Size = new System.Drawing.Size(129, 20);
             this.tbx_findTenKH.TabIndex = 21;
+            this.tbx_findTenKH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbx_findTenKH_KeyPress);
             // 
             // label2
             // 
@@ -310,6 +332,42 @@ namespace DoAnRapChieuPhim
             // 
             this.gHETableAdapter.ClearBeforeFill = true;
             // 
+            // doAnRapChieuPhim03DataSet3
+            // 
+            this.doAnRapChieuPhim03DataSet3.DataSetName = "DoAnRapChieuPhim03DataSet3";
+            this.doAnRapChieuPhim03DataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dOANBindingSource
+            // 
+            this.dOANBindingSource.DataMember = "DOAN";
+            this.dOANBindingSource.DataSource = this.doAnRapChieuPhim03DataSet3;
+            // 
+            // dOANTableAdapter
+            // 
+            this.dOANTableAdapter.ClearBeforeFill = true;
+            // 
+            // doAnRapChieuPhim03DataSet4
+            // 
+            this.doAnRapChieuPhim03DataSet4.DataSetName = "DoAnRapChieuPhim03DataSet4";
+            this.doAnRapChieuPhim03DataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lICHCHIEUBindingSource
+            // 
+            this.lICHCHIEUBindingSource.DataMember = "LICHCHIEU";
+            this.lICHCHIEUBindingSource.DataSource = this.doAnRapChieuPhim03DataSet4;
+            // 
+            // lICHCHIEUTableAdapter
+            // 
+            this.lICHCHIEUTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(257, 46);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(283, 123);
+            this.dataGridView1.TabIndex = 20;
+            // 
             // AddVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +397,11 @@ namespace DoAnRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.pHIMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gHEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dOANBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,5 +439,12 @@ namespace DoAnRapChieuPhim
         private DoAnRapChieuPhim03DataSet2 doAnRapChieuPhim03DataSet2;
         private System.Windows.Forms.BindingSource gHEBindingSource;
         private DoAnRapChieuPhim03DataSet2TableAdapters.GHETableAdapter gHETableAdapter;
+        private DoAnRapChieuPhim03DataSet3 doAnRapChieuPhim03DataSet3;
+        private System.Windows.Forms.BindingSource dOANBindingSource;
+        private DoAnRapChieuPhim03DataSet3TableAdapters.DOANTableAdapter dOANTableAdapter;
+        private DoAnRapChieuPhim03DataSet4 doAnRapChieuPhim03DataSet4;
+        private System.Windows.Forms.BindingSource lICHCHIEUBindingSource;
+        private DoAnRapChieuPhim03DataSet4TableAdapters.LICHCHIEUTableAdapter lICHCHIEUTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
