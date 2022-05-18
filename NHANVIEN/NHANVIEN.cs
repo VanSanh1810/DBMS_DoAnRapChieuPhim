@@ -46,5 +46,15 @@ namespace DoAnRapChieuPhim
             db.openConnection();
             command.ExecuteNonQuery();
         }
+
+        public DataTable timkiemnhanvien_TenPhongBang(string mapb)
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM timkiemnhanvien_TenPhongBang(@MaPB)", db.getConnection);
+            command.Parameters.Add("@MaPB", SqlDbType.Char).Value = mapb;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

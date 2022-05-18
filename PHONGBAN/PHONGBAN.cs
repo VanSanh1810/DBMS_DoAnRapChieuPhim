@@ -36,5 +36,7 @@ namespace DoAnRapChieuPhim
             db.openConnection();
             command.ExecuteNonQuery();
         }
+
+        
     }
 }

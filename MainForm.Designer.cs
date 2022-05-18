@@ -86,8 +86,6 @@ namespace DoAnRapChieuPhim
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pHONGBANBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.doAnRapChieuPhim03DataSet13 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet13();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbx_findwithname_nhanvien = new System.Windows.Forms.TextBox();
             this.button_refresh_nhanvien = new System.Windows.Forms.Button();
             this.button_add_nhanvien = new System.Windows.Forms.Button();
             this.dataGridView_nhanvien = new System.Windows.Forms.DataGridView();
@@ -110,8 +108,6 @@ namespace DoAnRapChieuPhim
             this.dOANBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.doAnRapChieuPhim03DataSet9 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet9();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbx_finndwithphim_ve = new System.Windows.Forms.TextBox();
             this.button_refresh_ve = new System.Windows.Forms.Button();
             this.button_add_ve = new System.Windows.Forms.Button();
             this.dataGridView_ve = new System.Windows.Forms.DataGridView();
@@ -126,8 +122,6 @@ namespace DoAnRapChieuPhim
             this.vEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.doAnRapChieuPhim03DataSet10 = new DoAnRapChieuPhim.DoAnRapChieuPhim03DataSet10();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tbx_findwithphim_lichchieu = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.dataGridView_lichchieu = new System.Windows.Forms.DataGridView();
             this.maLCDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maPhimDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -714,8 +708,6 @@ namespace DoAnRapChieuPhim
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.tabPage4.Controls.Add(this.label5);
             this.tabPage4.Controls.Add(this.comboBox1);
-            this.tabPage4.Controls.Add(this.label4);
-            this.tabPage4.Controls.Add(this.tbx_findwithname_nhanvien);
             this.tabPage4.Controls.Add(this.button_refresh_nhanvien);
             this.tabPage4.Controls.Add(this.button_add_nhanvien);
             this.tabPage4.Controls.Add(this.dataGridView_nhanvien);
@@ -744,6 +736,7 @@ namespace DoAnRapChieuPhim
             this.comboBox1.Size = new System.Drawing.Size(110, 21);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.ValueMember = "MaPB";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // pHONGBANBindingSource
             // 
@@ -754,22 +747,6 @@ namespace DoAnRapChieuPhim
             // 
             this.doAnRapChieuPhim03DataSet13.DataSetName = "DoAnRapChieuPhim03DataSet13";
             this.doAnRapChieuPhim03DataSet13.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(463, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Tên :";
-            // 
-            // tbx_findwithname_nhanvien
-            // 
-            this.tbx_findwithname_nhanvien.Location = new System.Drawing.Point(530, 31);
-            this.tbx_findwithname_nhanvien.Name = "tbx_findwithname_nhanvien";
-            this.tbx_findwithname_nhanvien.Size = new System.Drawing.Size(110, 20);
-            this.tbx_findwithname_nhanvien.TabIndex = 5;
             // 
             // button_refresh_nhanvien
             // 
@@ -960,8 +937,6 @@ namespace DoAnRapChieuPhim
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabPage6.Controls.Add(this.label7);
-            this.tabPage6.Controls.Add(this.tbx_finndwithphim_ve);
             this.tabPage6.Controls.Add(this.button_refresh_ve);
             this.tabPage6.Controls.Add(this.button_add_ve);
             this.tabPage6.Controls.Add(this.dataGridView_ve);
@@ -970,22 +945,6 @@ namespace DoAnRapChieuPhim
             this.tabPage6.Size = new System.Drawing.Size(685, 351);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Vé";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(468, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Phim :";
-            // 
-            // tbx_finndwithphim_ve
-            // 
-            this.tbx_finndwithphim_ve.Location = new System.Drawing.Point(509, 24);
-            this.tbx_finndwithphim_ve.Name = "tbx_finndwithphim_ve";
-            this.tbx_finndwithphim_ve.Size = new System.Drawing.Size(127, 20);
-            this.tbx_finndwithphim_ve.TabIndex = 5;
             // 
             // button_refresh_ve
             // 
@@ -1100,8 +1059,6 @@ namespace DoAnRapChieuPhim
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.tbx_findwithphim_lichchieu);
-            this.tabPage7.Controls.Add(this.label6);
             this.tabPage7.Controls.Add(this.dataGridView_lichchieu);
             this.tabPage7.Controls.Add(this.btn_add_lichchieu);
             this.tabPage7.Controls.Add(this.btn_refresh_lichchieu);
@@ -1111,22 +1068,6 @@ namespace DoAnRapChieuPhim
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Lịch chiếu";
             this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tbx_findwithphim_lichchieu
-            // 
-            this.tbx_findwithphim_lichchieu.Location = new System.Drawing.Point(513, 40);
-            this.tbx_findwithphim_lichchieu.Name = "tbx_findwithphim_lichchieu";
-            this.tbx_findwithphim_lichchieu.Size = new System.Drawing.Size(124, 20);
-            this.tbx_findwithphim_lichchieu.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(471, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Phim :";
             // 
             // dataGridView_lichchieu
             // 
@@ -1444,12 +1385,10 @@ namespace DoAnRapChieuPhim
             ((System.ComponentModel.ISupportInitialize)(this.dOANBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet9)).EndInit();
             this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ve)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet10)).EndInit();
             this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lichchieu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doAnRapChieuPhim03DataSet11)).EndInit();
@@ -1579,14 +1518,8 @@ namespace DoAnRapChieuPhim
         private System.Windows.Forms.CheckBox cbx_thoiluong;
         private System.Windows.Forms.TextBox tbx_findwithname_khachhang;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbx_findwithname_nhanvien;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox tbx_findwithphim_lichchieu;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbx_finndwithphim_ve;
         private System.Windows.Forms.TrackBar trackBar_diemmin;
         private System.Windows.Forms.TrackBar trackBar_diemmax;
         private System.Windows.Forms.Label lb_diem_min;

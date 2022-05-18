@@ -14,6 +14,7 @@ namespace DoAnRapChieuPhim
     {
         PHIM ph = new PHIM();
         KHACHHANG kh = new KHACHHANG();
+        NHANVIEN nv = new NHANVIEN();
         public MainForm()
         {
             InitializeComponent();
@@ -118,7 +119,8 @@ namespace DoAnRapChieuPhim
                                   dataGridView_ve.CurrentRow.Cells[4].Value.ToString(),
                                   dataGridView_ve.CurrentRow.Cells[5].Value.ToString(),
                                   (DateTime)dataGridView_ve.CurrentRow.Cells[6].Value,
-                                  Convert.ToInt32(dataGridView_ve.CurrentRow.Cells[7].Value));
+                                  Convert.ToInt32(dataGridView_ve.CurrentRow.Cells[7
+                                  ].Value));
             a.Show(this);
         }
 
@@ -338,6 +340,19 @@ namespace DoAnRapChieuPhim
         {
             this.vETableAdapter.Fill(this.doAnRapChieuPhim03DataSet10.VE);
             dataGridView_ve.DataSource = doAnRapChieuPhim03DataSet10.VE;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedValue != null)
+            {
+                nv.timkiemnhanvien_TenPhongBang(comboBox1.SelectedValue.ToString().Trim());
+            }
+        }
+
+        private void tbx_findwithname_nhanvien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }
