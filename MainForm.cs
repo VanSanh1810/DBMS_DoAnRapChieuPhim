@@ -12,6 +12,8 @@ namespace DoAnRapChieuPhim
 {
     public partial class MainForm : Form
     {
+        PHIM ph = new PHIM();
+        KHACHHANG kh = new KHACHHANG();
         public MainForm()
         {
             InitializeComponent();
@@ -24,6 +26,8 @@ namespace DoAnRapChieuPhim
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet18.GHE' table. You can move, or remove it, as needed.
+            this.gHETableAdapter.Fill(this.doAnRapChieuPhim03DataSet18.GHE);
             // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet13.PHONGBAN' table. You can move, or remove it, as needed.
             this.pHONGBANTableAdapter.Fill(this.doAnRapChieuPhim03DataSet13.PHONGBAN);
             // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet12.LICHCHIEU' table. You can move, or remove it, as needed.
@@ -114,7 +118,7 @@ namespace DoAnRapChieuPhim
                                   dataGridView_ve.CurrentRow.Cells[4].Value.ToString(),
                                   dataGridView_ve.CurrentRow.Cells[5].Value.ToString(),
                                   (DateTime)dataGridView_ve.CurrentRow.Cells[6].Value,
-                                  Convert.ToInt32(dataGridView_ve.CurrentRow.Cells[0].Value));
+                                  Convert.ToInt32(dataGridView_ve.CurrentRow.Cells[7].Value));
             a.Show(this);
         }
 
@@ -228,6 +232,112 @@ namespace DoAnRapChieuPhim
         private void btn_refresh_lichchieu_Click(object sender, EventArgs e)
         {
             this.lICHCHIEUTableAdapter.Fill(this.doAnRapChieuPhim03DataSet11.LICHCHIEU);
+        }
+
+        private void trackBar_thoiluongmin_ValueChanged(object sender, EventArgs e)
+        {
+            lb_min.Text = trackBar_thoiluongmin.Value.ToString();
+            if(trackBar_thoiluongmin.Value > trackBar_thoiluongmax.Value)
+            {
+                trackBar_thoiluongmax.Value = trackBar_thoiluongmin.Value;
+            }
+            dataGridView_phim.DataSource =  ph.FindWithThoiLuong(trackBar_thoiluongmax.Value, trackBar_thoiluongmin.Value);
+        }
+
+        private void trackBar_thoiluongmax_ValueChanged(object sender, EventArgs e)
+        {
+            lb_max.Text = trackBar_thoiluongmax.Value.ToString();
+            if(trackBar_thoiluongmax.Value < trackBar_thoiluongmin.Value)
+            {
+                trackBar_thoiluongmin.Value = trackBar_thoiluongmax.Value;
+            }
+            dataGridView_phim.DataSource = ph.FindWithThoiLuong(trackBar_thoiluongmax.Value, trackBar_thoiluongmin.Value);
+        }
+
+        private void cbx_thoiluong_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbx_thoiluong.Checked)
+            {
+                trackBar_thoiluongmax.Enabled = true;
+                trackBar_thoiluongmin.Enabled = true;
+                dataGridView_phim.DataSource = ph.FindWithThoiLuong(trackBar_thoiluongmax.Value, trackBar_thoiluongmin.Value);
+            }
+            else
+            {
+                trackBar_thoiluongmax.Enabled = false;
+                trackBar_thoiluongmin.Enabled = false;
+                dataGridView_phim.DataSource = doAnRapChieuPhim03DataSet5.PHIM;
+            }
+        }
+
+        private void tbx_find_tenphim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (tbx_find_tenphim.Text.Trim() != "")
+            {
+                dataGridView_phim.DataSource = ph.FindWithTenPhim(tbx_find_tenphim.Text);
+            }
+            else
+            {
+                dataGridView_phim.DataSource = doAnRapChieuPhim03DataSet5.PHIM;
+            }
+        }
+
+        private void trackBar_diemmax_ValueChanged(object sender, EventArgs e)
+        {
+            if(trackBar_diemmax.Value < trackBar_diemmin.Value)
+            {
+                trackBar_diemmin.Value = trackBar_diemmax.Value;
+            }
+            lb_diem_max.Text = trackBar_diemmax.Value.ToString();
+        }
+
+        private void trackBar_diemmin_ValueChanged(object sender, EventArgs e)
+        {
+            if (trackBar_diemmin.Value > trackBar_diemmax.Value)
+            {
+                trackBar_diemmax.Value = trackBar_diemmin.Value;
+            }
+            lb_diem_min.Text = trackBar_diemmin.Value.ToString();
+        }
+
+        private void chbx_diem_kh_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbx_diem_kh.Checked)
+            {
+                trackBar_diemmax.Enabled = true;
+                trackBar_diemmin.Enabled = true;
+            }
+            else
+            {
+                trackBar_diemmax.Enabled = false;
+                trackBar_diemmin.Enabled = false;
+            }
+        }
+
+        private void tbx_findwithname_khachhang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            if(tbx_findwithname_khachhang.Text.Trim() != "")
+            {
+                dataGridView_khachhang.DataSource =  kh.GetKHWithName(tbx_findwithname_khachhang.Text);
+            }
+            else
+            {
+                dataGridView_khachhang.DataSource = doAnRapChieuPhim03DataSet7.KHACHHANG;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            this.gHETableAdapter.Fill(this.doAnRapChieuPhim03DataSet18.GHE);
+            dataGridView1.DataSource = doAnRapChieuPhim03DataSet18.GHE;
+        }
+
+        private void button_refresh_ve_Click(object sender, EventArgs e)
+        {
+            this.vETableAdapter.Fill(this.doAnRapChieuPhim03DataSet10.VE);
+            dataGridView_ve.DataSource = doAnRapChieuPhim03DataSet10.VE;
         }
     }
 }

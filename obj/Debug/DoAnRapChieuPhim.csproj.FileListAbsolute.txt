@@ -16,3 +16,4 @@ C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChi
 C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddNhanVien.resources
 C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddPhongBan.resources
 C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddVe.resources
+C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.ChonGhe.resources

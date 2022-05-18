@@ -43,7 +43,7 @@ namespace DoAnRapChieuPhim
 
         public void DelVE(string mave)
         {
-            SqlCommand command = new SqlCommand("exec ve_del @mave, @manv, @makh, @malc, @madoan, @maghe, @ngaydat, @gia ", db.getConnection);
+            SqlCommand command = new SqlCommand("exec ve_del @mave", db.getConnection);
             command.Parameters.Add("@mave", SqlDbType.Char).Value = mave;
             db.openConnection();
             command.ExecuteNonQuery();
@@ -51,7 +51,8 @@ namespace DoAnRapChieuPhim
 
         public DataTable FindWithMaVe(string mave)
         {
-            SqlCommand command = new SqlCommand("findWithMaVe(@MaVe)", db.getConnection);
+            SqlCommand command = new SqlCommand("SELECT * FROM findWithMaVe(@MaVe)", db.getConnection);
+            command.Parameters.Add("@MaVe", SqlDbType.Char).Value = mave;
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);

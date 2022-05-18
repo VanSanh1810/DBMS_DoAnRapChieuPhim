@@ -84,8 +84,10 @@ namespace DoAnRapChieuPhim
             // 
             this.tbx_succhua.Location = new System.Drawing.Point(108, 65);
             this.tbx_succhua.Name = "tbx_succhua";
+            this.tbx_succhua.ReadOnly = true;
             this.tbx_succhua.Size = new System.Drawing.Size(139, 20);
             this.tbx_succhua.TabIndex = 4;
+            this.tbx_succhua.Text = "10";
             this.tbx_succhua.Leave += new System.EventHandler(this.tbx_succhua_Leave);
             // 
             // cbx_trangthai

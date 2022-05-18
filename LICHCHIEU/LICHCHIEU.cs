@@ -42,5 +42,25 @@ namespace DoAnRapChieuPhim
             db.openConnection();
             command.ExecuteNonQuery();
         }
+
+        public DataTable FindWithMaPhim(string maphim)
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM findWithMaPhim_LICHCHIEU(@MaPhim)", db.getConnection);
+            command.Parameters.Add("@MaPhim", SqlDbType.Char).Value = maphim;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
+
+        public DataTable FindWithMaLC(string malc)
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM findWithMaLC_LICHCHIEU(@MaLC)", db.getConnection);
+            command.Parameters.Add("@MaLC", SqlDbType.Char).Value = malc;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

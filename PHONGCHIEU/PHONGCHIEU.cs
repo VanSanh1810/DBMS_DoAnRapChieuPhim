@@ -36,5 +36,15 @@ namespace DoAnRapChieuPhim
             db.openConnection();
             command.ExecuteNonQuery();
         }
+
+        public DataTable GetGheTrong(string mapc)
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM GetGheTrong(@MaPC)", db.getConnection);
+            command.Parameters.Add("@MaPC", SqlDbType.Char).Value = mapc;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
     }
 }
