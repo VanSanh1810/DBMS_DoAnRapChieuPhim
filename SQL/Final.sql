@@ -3,12 +3,26 @@ go
 use DoAnRapChieuPhim03
 
 go
+create table LOG_IN
+(
+username char(12) not null, 
+pass nvarchar(20) not null,
+quyen char(4) not null
+constraint PK_LOG_IN primary key(username)
+);
+go
 create table PHONGBAN
 (
 MaPB char(4) not null, --PB..
 TenPB nvarchar(20) not null,
 constraint PK_PHONGBAN primary key(MaPB)
 );
+go
+INSERT INTO PHONGBAN(MaPB,TenPB) VALUES ('PB01', 'QLPhongChieu')
+INSERT INTO PHONGBAN(MaPB,TenPB) VALUES ('PB02', 'QLPhim')
+INSERT INTO PHONGBAN(MaPB,TenPB) VALUES ('PB03', 'QLLichChieu')
+INSERT INTO PHONGBAN(MaPB,TenPB) VALUES ('PB04', 'QLKhachHang')
+INSERT INTO PHONGBAN(MaPB,TenPB) VALUES ('PB05', 'QlVe')
 go
 create table NHANVIEN
 (
@@ -48,7 +62,7 @@ create table PHONGCHIEU
 MaPC char(4) not null, --PC00
 SucChua int not null,
 TrangThai bit not null,
-constraint PK_PHONGCHIEU primary key(MaPC),
+constraint PK_PHONGCHIEU primary key(MaPC)
 );
 
 go
@@ -105,11 +119,25 @@ constraint FK_VE_LICHCHIEU foreign key(MaLC) references LICHCHIEU(MaLC)
 );
 GO
 
+-----------------LOGIN--------------------------
+---------------------Hàm check tồn tại----------
+go
+create function Check_Login (@Username char(10), @Pass char(10)) returns table
+as return SELECT * FROM LOG_IN WHERE [username] = @Username AND [pass] = @Pass
+go
 
+ 
+
+
+
+
+
+
+ go
 
 ----------  NHANVIEN  ---------------------
 ------------Thêm Nhân Viên-----------------
-CREATE PROCEDURE nhanvien_insert
+CREATE PROCEDURE nhanvien_insert ------------Thêm Nhân Viên-----------------
 (
 @MaNV Char(12),
 @TenNV nvarchar(50),
@@ -145,7 +173,7 @@ END
 
 GO
 ------------Cập Nhật Nhân Viên-----------------
-CREATE PROCEDURE nhanvien_updates
+CREATE PROCEDURE nhanvien_updates ------------Cập Nhật Nhân Viên-----------------
 (
 @MaNV char(12),
 @TenNV nvarchar(18),
@@ -170,7 +198,7 @@ END
 
 GO
 ------------Xóa Nhân Viên-----------------
-CREATE PROCEDURE nhanvien_delete
+CREATE PROCEDURE nhanvien_delete ------------Xóa Nhân Viên-----------------
 (
 @MaNV Char(12)
 )
@@ -195,6 +223,23 @@ BEGIN
     UPDATE VE
 	SET	[MaNV] = NULL
 	WHERE [MaNV] = @del
+END
+go
+CREATE TRIGGER Trigger_addNV_addLogin ON NHANVIEN -------------Add nhân viên add login-------
+AFTER INSERT
+AS 
+declare @Mapb char(12),
+		@User char(20),
+		@Pass char(20)
+SELECT @Mapb = inserted.MaPB
+FROM inserted 
+SELECT @User = inserted.TenNV
+FROM inserted 
+SELECT @Pass = inserted.SDT
+FROM inserted 
+BEGIN
+    INSERT INTO LOG_IN([username],[pass],[quyen])
+	VALUES (@User, @Pass,@Mapb)
 END
 go
 -------------------------------Hàm-------------------------
@@ -226,7 +271,7 @@ go
 
 ----------  PHONGBAN  ---------------------
 ------------Thêm Phòng Ban-----------------
-CREATE PROCEDURE phongban_insert
+CREATE PROCEDURE phongban_insert ------------Thêm Phòng Ban--------
 (
 @MaPB Char(4),
 @TenPhongBan nvarchar(20)
@@ -335,7 +380,7 @@ BEGIN
 END
 GO
 ------------Cập Nhật Ghế-----------------
-CREATE PROCEDURE ghe_updates
+CREATE PROCEDURE ghe_updates ------------Cập Nhật Ghế-------
 (
 @MaGhe Char(7),
 @LoaiGhe bit,
@@ -352,7 +397,7 @@ BEGIN
 END
 GO
 ------------Xóa Ghế-----------------
-CREATE PROCEDURE ghe_delete
+CREATE PROCEDURE ghe_delete ------------Xóa Ghế------
 (
 @MaGhe char(7)
 )
@@ -387,7 +432,7 @@ go
 
 ------------   PHÒNG CHIÊU  -----------------
 ------------Thêm Phòng Chiếu-----------------
-CREATE PROCEDURE phongchieu_insert
+CREATE PROCEDURE phongchieu_insert ------------Thêm Phòng Chiếu---------
 	(
 	@MaPhongChieu char(4),
 	@SucChua int,
@@ -406,7 +451,7 @@ BEGIN
 END
 GO
 ------------Cập Nhật Phòng Chiếu-----------------
-CREATE PROCEDURE phongchieu_update
+CREATE PROCEDURE phongchieu_update ------------Cập Nhật Phòng Chiếu-------
 	(
 	@MaPhongChieu char(4),
 	@SucChua int,
@@ -488,7 +533,7 @@ go
 
 ------------  PHIM  ------------------
 ------------Thêm Phim-----------------
-CREATE PROCEDURE phim_insert
+CREATE PROCEDURE phim_insert ------------Thêm Phim----
 	(
 	@MaPhim char (4),
 	@TenPhim nvarchar(50),
@@ -496,20 +541,12 @@ CREATE PROCEDURE phim_insert
 	)
 AS
 BEGIN
-	INSERT INTO PHIM
-           ([MaPhim]
-           ,[TenPhim]
-           ,[ThoiLuong])
-     VALUES
-           (
-		   @MaPhim,
-		   @TenPhim,
-		   @ThoiLuong
-		   )
+	INSERT INTO PHIM([MaPhim],[TenPhim],[ThoiLuong])
+     VALUES (@MaPhim,@TenPhim,@ThoiLuong)
 END
 GO
 ------------Cập Nhật Phim-----------------
-CREATE PROCEDURE phim_update
+CREATE PROCEDURE phim_update ------------Cập Nhật Phim------
 	(
 	@MaPhim char (4),
 	@TenPhim nvarchar(50),
@@ -525,7 +562,7 @@ BEGIN
 END
 GO
 ----------------Xóa Phim-----------------
-CREATE PROCEDURE phim_delete
+CREATE PROCEDURE phim_delete -----------------Xóa Phim------
 	(
 	@MaPhim char(4)
 	)
@@ -560,7 +597,7 @@ go
 
 ------------Do an--------------------
 -----------Thêm-----------------
-Create PROC doan_insert
+Create PROC doan_insert -----------Thêm đồ ăn------------
 	(
 	@MaDA char(4),
 	@TenMon char(20),
@@ -568,26 +605,13 @@ Create PROC doan_insert
 	)
 As
 Begin
-	INSERT INTO DOAN(
-		[MaDoAn],
-		[TenMon],
-		[Gia]
-		)
-	VALUES 
-		(
-		@MaDA,
-		@TenMon,
-		@Gia
-		)
+	INSERT INTO DOAN([MaDoAn],[TenMon],[Gia])
+	VALUES (@MaDA,@TenMon,@Gia)
 End
 Go
 ---------------Update------------------
 Create PROC doan_update
-	(
-	@MaDA char(4),
-	@TenMon char(20),
-	@Gia int
-	)
+	(@MaDA char(4), @TenMon char(20), @Gia int) ---------------Update đồ ăn------
 As
 Begin
 	UPDATE DOAN
@@ -608,7 +632,6 @@ As
 Begin
 	DELETE FROM DOAN
 	WHERE [MaDoAn] = @MaDA
-
 End
 go
 ----------------Hàm tìm kiếm--------------
@@ -633,7 +656,7 @@ go
 
 -----------------KHACHHANG-----------------
 ----------------Thêm---------------------
-Create PROC khachhang_insert
+Create PROC khachhang_insert ----------------Thêm khách hàng------------
 	(
 	@MaKH char(12),
 	@TenKH nvarchar(20),
@@ -649,7 +672,7 @@ begin
 end
 go
 ----------------Sửa-------------------------
-Create PROC khachhang_update
+Create PROC khachhang_update ----------------Sửa khách hàng----------
 	(
 	@MaKH char(12),
 	@TenKH nvarchar(20),
@@ -666,7 +689,7 @@ begin
 end
 go
 ---------------Xóa----------------------------
-Create PROC khachhang_del
+Create PROC khachhang_del ---------------Xóa khách hàng-------------
 	(
 	@MaKH char(12)
 	)
@@ -679,7 +702,7 @@ go
 -----------------Trigger----------------------
 -- Xóa Khách Hàng sẽ xóa vé của họ
 GO
-CREATE TRIGGER Trig_XoaKhachHang ON KHACHHANG
+CREATE TRIGGER Trig_XoaKhachHang ON KHACHHANG -- Xóa Khách Hàng sẽ xóa vé của họ
 AFTER DELETE
 AS 
 declare @del char(14)
@@ -691,7 +714,7 @@ BEGIN
 END
 go
 --------Update điểm lên vip-------------
-CREATE TRIGGER Trig_UpdateKhachHang ON KHACHHANG
+CREATE TRIGGER Trig_UpdateKhachHang ON KHACHHANG --------Update điểm lên vip----
 AFTER UPDATE
 AS 
 declare @diem int,
@@ -706,6 +729,8 @@ BEGIN
 		WHERE [MaKH] = @makh
 	end
 END
+go
+
 go
 ------------------Hàm tìm kiếm-----------------
 --toan bo kh--
@@ -734,6 +759,9 @@ go
 create function findVip(@LoaiKH bit) returns table
 as	 return select * from KHACHHANG Where [LoaiKH] = @LoaiKH
 go
+create function findWithDiem(@Max int, @Min int) returns table
+as	 return select * from KHACHHANG Where [Diem] >= @Min AND [Diem] <= @Max
+go
 
 
 
@@ -743,13 +771,11 @@ go
 ------------------LICHCHIEU--------------------
 ------------------Thêm----------------------
 Create PROC lichchieu_insert
-	(
-	@MaLC char(12),
+	(@MaLC char(12),
 	@MaPC char(4),
 	@MaPhim char(4),
 	@NgayChieu date,
-	@SoTien int
-	)
+	@SoTien int)
 as
 begin
 	INSERT INTO LICHCHIEU([MaLC], [MaPC], [MaPhim], [NgayKhoiChieu], [SoTien])
@@ -757,7 +783,7 @@ begin
 end
 go
 --------------------Sửa----------------------
-Create PROC lichchieu_update
+Create PROC lichchieu_update --------------------Sửa lịch chiếu------
 	(
 	@MaLC char(12),
 	@MaPC char(4),
@@ -773,7 +799,7 @@ begin
 end
 go
 -----------------Xóa-----------------------
-Create PROC lichchieu_del
+Create PROC lichchieu_del ----------------Xóa lịch chiếu----------
 	(
 	@MaLC char(12)
 	)
@@ -792,7 +818,7 @@ Create function findWithMaLC_LICHCHIEU(@MaLC char(12)) returns table
 as return select * from LICHCHIEU Where [MaLC] = @MaLC
 go
 --------------------Trigger xóa lịch chiếu sẽ xóa vé------------------
-create TRIGGER Trig_XoaLC ON LICHCHIEU
+create TRIGGER Trig_XoaLC ON LICHCHIEU ---------------Trigger xóa lịch chiếu sẽ xóa vé--------
 AFTER DELETE
 AS 
 	declare 
@@ -816,17 +842,15 @@ go
 
 -----------------VE--------------------------
 -----------------Thêm-----------------------
-Create PROC ve_insert
-	(
-	@MaVe char(12),
+Create PROC ve_insert ----------Thêm vé------------
+	(@MaVe char(12),
 	@MaNV char(12),
 	@MaKH char(12),
 	@MaLC char(12),
 	@MaDoAn char(4),
 	@MaGhe char(7),
 	@NgayDatVe date,
-	@GiaVe int
-	)
+	@GiaVe int)
 as
 begin
 	INSERT INTO VE([MaVe], [MaNV], [MaKH], [MaLC],[MaDoAn], [MaGhe], [NgayDatVe], [GiaVe])
@@ -836,7 +860,7 @@ go
 
 go
 -----------------Xóa-------------------------
-Create PROC ve_del
+Create PROC ve_del -----------Xóa vé----------
 	(
 	@MaVe char(12)
 	)
@@ -847,7 +871,7 @@ begin
 end
 go
 -------------------Sửa----------------------
-Create PROC ve_update
+Create PROC ve_update --------------Sửa vé-----------
 	(
 	@MaVe char(12),
 	@MaNV char(12),
@@ -876,7 +900,7 @@ go
 go
 ------------------TRIGGER--------------------------
 -----------------ADD vé sẽ tính tiền vé và cộng điểm cho người đặt-----------------
-Create trigger Add_ve_AddDiemVaTinhTien ON VE after INSERT
+Create trigger Add_ve_AddDiemVaTinhTien ON VE after INSERT 
 as
 BEGIN
 	Declare @MaVe char(12),
@@ -940,3 +964,74 @@ BEGIN
 		WHERE [MaVe] = @MaVe
 	END
 END
+go
+
+
+
+----------------ROLE--------------------
+use DoAnRapChieuPhim03
+create login ADMIN_DB with password = 'admin'
+create user ADMIN_DB for login ADMIN_DB
+
+exec sp_addrolemember 'db_owner' , 'ADMIN_DB'
+
+
+
+exec sp_addrole 'db_QLQuayVe' , 'ADMIN_DB'
+grant select,insert,update,delete on VE to db_QLQuayVe
+grant select,insert,update,delete on DOAN to db_QLQuayVe
+grant select on PHIM to db_QLQuayVe
+grant select on PHONGCHIEU to db_QLQuayVe
+grant select on GHE to db_QLQuayVe
+grant select on LICHCHIEU to db_QLQuayVe
+grant select on KHACHHANG to db_QLQuayVe
+grant select on NHANVIEN to db_QLQuayVe
+grant select on PHONGBAN to db_QLQuayVe
+
+create login QLQuayVe1 with password = '1'
+create user QLQuayVe1 for login QLQuayVe1
+exec sp_addrolemember 'db_QLQuayVe' , 'QLQuayVe1'
+
+
+
+
+exec sp_addrole 'db_QLPhim' , 'ADMIN_DB'
+grant select,insert,update,delete on PHIM to db_QLPhim
+
+create login QLPhim1 with password = '1'
+create user QLPhim1 for login QLPhim1
+exec sp_addrolemember 'db_QLPhim' , 'QLPhim1'
+
+
+
+
+
+exec sp_addrole 'db_QLPhongChieu' , 'ADMIN_DB'
+grant select,insert,update,delete on PHONGCHIEU to db_QLPhongChieu
+grant select,insert,update,delete on GHE to db_QLPhongChieu
+
+create login QLPhongChieu1 with password = '1'
+create user QLPhongChieu1 for login QLPhongChieu1
+exec sp_addrolemember 'db_QLPhongChieu' , 'QLPhongChieu1'
+
+
+
+exec sp_addrole 'db_QLLichChieu' , 'ADMIN_DB'
+grant select,insert,update,delete on LICHCHIEU to db_QLLichChieu
+grant select on PHIM to db_QLLichChieu
+grant select on PHONGCHIEU to db_QLLichChieu
+grant select on GHE to db_QLLichChieu
+
+create login QLLichChieu1 with password = '1'
+create user QLLichChieu1 for login QLLichChieu1
+exec sp_addrolemember 'db_QLLichChieu' , 'QLLichChieu1'
+
+
+
+
+exec sp_addrole 'db_QKhachHang' , 'ADMIN_DB'
+grant select,insert,update,delete on KHACHHANG to db_QKhachHang
+
+create login QLKhachHang1 with password = '1'
+create user QLKhachHang1 for login QLKhachHang1
+exec sp_addrolemember 'db_QKhachHang' , 'QLKhachHang1'

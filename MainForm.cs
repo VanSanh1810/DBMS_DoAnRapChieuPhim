@@ -15,9 +15,13 @@ namespace DoAnRapChieuPhim
         PHIM ph = new PHIM();
         KHACHHANG kh = new KHACHHANG();
         NHANVIEN nv = new NHANVIEN();
-        public MainForm()
+        string role;
+        string name;
+        public MainForm(string role, string name)
         {
             InitializeComponent();
+            this.role = role.Trim(); ;
+            this.name = name;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -47,7 +51,80 @@ namespace DoAnRapChieuPhim
             this.pHONGCHIEUTableAdapter.Fill(this.doAnRapChieuPhim03DataSet6.PHONGCHIEU);
             // TODO: This line of code loads data into the 'doAnRapChieuPhim03DataSet5.PHIM' table. You can move, or remove it, as needed.
             this.pHIMTableAdapter.Fill(this.doAnRapChieuPhim03DataSet5.PHIM);
-
+            lb_username.Text = name;
+            //tabControl1.TabPages[0].Controls.Clear();
+            switch (role)
+            {
+                case "PB01": //QLPhongChieu
+                    {
+                        tabControl1.TabPages[0].Controls.Clear();
+                        //tabControl1.TabPages[1].Controls.Clear();
+                        tabControl1.TabPages[2].Controls.Clear();
+                        tabControl1.TabPages[3].Controls.Clear();
+                        tabControl1.TabPages[4].Controls.Clear();
+                        tabControl1.TabPages[5].Controls.Clear();
+                        tabControl1.TabPages[6].Controls.Clear();
+                        tabControl1.TabPages[7].Controls.Clear();
+                        //tabControl1.TabPages[8].Controls.Clear();
+                        break;
+                    }
+                case "PB02": //QLPhim
+                    {
+                        //tabControl1.TabPages[0].Controls.Clear();
+                        tabControl1.TabPages[1].Controls.Clear();
+                        tabControl1.TabPages[2].Controls.Clear();
+                        tabControl1.TabPages[3].Controls.Clear();
+                        tabControl1.TabPages[4].Controls.Clear();
+                        tabControl1.TabPages[5].Controls.Clear();
+                        tabControl1.TabPages[6].Controls.Clear();
+                        tabControl1.TabPages[7].Controls.Clear();
+                        tabControl1.TabPages[8].Controls.Clear();
+                        break;
+                    }
+                case "PB03": //QLLichChieu
+                    {
+                        //tabControl1.TabPages[0].Controls.Clear();
+                        //tabControl1.TabPages[1].Controls.Clear();
+                        tabControl1.TabPages[2].Controls.Clear();
+                        tabControl1.TabPages[3].Controls.Clear();
+                        tabControl1.TabPages[4].Controls.Clear();
+                        tabControl1.TabPages[5].Controls.Clear();
+                        //tabControl1.TabPages[6].Controls.Clear();
+                        tabControl1.TabPages[7].Controls.Clear();
+                        tabControl1.TabPages[8].Controls.Clear();
+                        break;
+                    }
+                case "PB04": //QLKhachHang
+                    {
+                        tabControl1.TabPages[0].Controls.Clear();
+                        tabControl1.TabPages[1].Controls.Clear();
+                        //tabControl1.TabPages[2].Controls.Clear();
+                        tabControl1.TabPages[3].Controls.Clear();
+                        tabControl1.TabPages[4].Controls.Clear();
+                        tabControl1.TabPages[5].Controls.Clear();
+                        tabControl1.TabPages[6].Controls.Clear();
+                        tabControl1.TabPages[7].Controls.Clear();
+                        tabControl1.TabPages[8].Controls.Clear();
+                        break;
+                    }
+                case "PB05": //QLVe
+                    {
+                        tabControl1.TabPages[0].Controls.Clear();
+                        tabControl1.TabPages[1].Controls.Clear();
+                        tabControl1.TabPages[2].Controls.Clear();
+                        tabControl1.TabPages[3].Controls.Clear();
+                        tabControl1.TabPages[4].Controls.Clear();
+                        //tabControl1.TabPages[5].Controls.Clear();
+                        tabControl1.TabPages[6].Controls.Clear();
+                        tabControl1.TabPages[7].Controls.Clear();
+                        tabControl1.TabPages[8].Controls.Clear();
+                        break;
+                    }
+                case "ad":
+                    {
+                        break;
+                    }
+            }
         }
 
         private void dataGridView_phim_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -176,7 +253,7 @@ namespace DoAnRapChieuPhim
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.Abort; 
         }
 
         private void btn_refresh_phongban_Click(object sender, EventArgs e)
@@ -291,6 +368,7 @@ namespace DoAnRapChieuPhim
                 trackBar_diemmin.Value = trackBar_diemmax.Value;
             }
             lb_diem_max.Text = trackBar_diemmax.Value.ToString();
+            dataGridView_khachhang.DataSource = kh.findWithDiem(trackBar_diemmax.Value, trackBar_diemmin.Value);
         }
 
         private void trackBar_diemmin_ValueChanged(object sender, EventArgs e)
@@ -300,10 +378,12 @@ namespace DoAnRapChieuPhim
                 trackBar_diemmax.Value = trackBar_diemmin.Value;
             }
             lb_diem_min.Text = trackBar_diemmin.Value.ToString();
+            dataGridView_khachhang.DataSource = kh.findWithDiem(trackBar_diemmax.Value, trackBar_diemmin.Value);
         }
 
         private void chbx_diem_kh_CheckedChanged(object sender, EventArgs e)
         {
+            dataGridView_khachhang.DataSource = doAnRapChieuPhim03DataSet7.KHACHHANG;
             if (chbx_diem_kh.Checked)
             {
                 trackBar_diemmax.Enabled = true;

@@ -16,7 +16,18 @@ namespace DoAnRapChieuPhim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            //Application.Run(new MainForm());
+            Application.Run(new LoginForm());
+            /*LoginForm a = new LoginForm();
+            //a.Show();
+            if(a.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new MainForm());
+            }
+            else
+            {
+                Application.Exit();
+            }*/
         }
     }
 }

@@ -63,5 +63,16 @@ namespace DoAnRapChieuPhim
             adapter.Fill(table);
             return table;
         }
+
+        public DataTable findWithDiem(int max, int min)
+        {
+            SqlCommand command = new SqlCommand("SELECT * FROM findWithDiem(@max, @min)", db.getConnection);
+            command.Parameters.Add("@max", SqlDbType.Char).Value = max;
+            command.Parameters.Add("@min", SqlDbType.Char).Value = min;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

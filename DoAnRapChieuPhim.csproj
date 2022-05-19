@@ -100,6 +100,12 @@
     <Compile Include="LICHCHIEU\AddLichChieu.Designer.cs">
       <DependentUpon>AddLichChieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NHANVIEN\AddNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LICHCHIEU\AddLichChieu.resx">
       <DependentUpon>AddLichChieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NHANVIEN\AddNhanVien.resx">
       <DependentUpon>AddNhanVien.cs</DependentUpon>
@@ -492,6 +501,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sanh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
