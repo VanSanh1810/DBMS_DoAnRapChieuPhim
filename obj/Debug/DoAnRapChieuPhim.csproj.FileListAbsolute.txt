@@ -18,3 +18,23 @@ C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChi
 C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddVe.resources
 C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.ChonGhe.resources
 C:\Users\Administrator\Desktop\HQT\Project\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.LoginForm.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\bin\Debug\DoAnRapChieuPhim.exe.config
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\bin\Debug\DoAnRapChieuPhim.exe
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\bin\Debug\DoAnRapChieuPhim.pdb
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.ChonGhe.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddDoAn.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddKhachHang.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddLichChieu.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.LoginForm.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddNhanVien.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddPhim.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddPhongBan.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddPhongChieu.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.AddVe.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.MainForm.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.Properties.Resources.resources
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.exe
+C:\Users\Administrator\Desktop\HQT\NHOM_9 HQT\DoAnRapChieuPhim\obj\Debug\DoAnRapChieuPhim.pdb
